@@ -501,8 +501,6 @@ func (ctx *invocationContext) CreateActor(codeID cid.Cid, addr address.Address) 
 
 	vmlog.Infof("creating actor, friendly-name: %s, code: %s, addr: %s\n", builtin.ActorNameByCode(codeID), codeID, addr)
 
-	ctx.gasTank.Charge(ctx.rt.pricelist.OnCreateActor(), "CreateActor code %s, address %s", codeID, addr)
-
 	// Check existing address. If nothing there, create empty actor.
 	//
 	// Note: we are storing the actors by ActorID *address*
@@ -521,6 +519,9 @@ func (ctx *invocationContext) CreateActor(codeID cid.Cid, addr address.Address) 
 	if err := ctx.rt.state.SetActor(ctx.rt.context, addr, newActor); err != nil {
 		panic(err)
 	}
+
+	// Charge gas once we are sure we have made a meaningful state change
+	ctx.gasTank.Charge(ctx.rt.pricelist.OnCreateActor(), "CreateActor code %s, address %s", codeID, addr)
 }
 
 // DeleteActor implements runtime.ExtendedInvocationContext.
