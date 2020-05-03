@@ -13,7 +13,7 @@ import (
 	"sync"
 	"time"
 
-	pf "github.com/filecoin-project/go-paramfetch"
+	pf "github.com/sbwtw/go-paramfetch"
 	"github.com/pkg/errors"
 
 	"github.com/filecoin-project/go-filecoin/build/internal/helpers"
