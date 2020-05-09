@@ -1,7 +1,7 @@
 package submodule
 
 import (
-	"github.com/filecoin-project/sector-storage/ffiwrapper"
+	"github.com/sbwtw/sector-storage/ffiwrapper"
 )
 
 // ProofVerificationSubmodule adds proof verification capabilities to the node.
