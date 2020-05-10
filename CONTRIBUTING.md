@@ -50,7 +50,7 @@ Filecoin, including go-filecoin and all related modules, follows the
 
 Here at `go-filecoin`, there’s always a lot of work to do. There are many ways you can support the project, from progamming, writing, organizing, and more. Consider these as starting points:
 
-- **Submit bugs**: Perform a cursory [search](https://github.com/filecoin-project/go-filecoin/issues) to see if the problem has already been reported. If it does exist, add a 👍 to the issue to indicate this is also an issue for you, and add a comment if there is extra information you can contribute. If it does not exist, [create a new issue](https://github.com/filecoin-project/go-filecoin/issues/new/choose) (using the Bug report template).
+- **Submit bugs**: Perform a cursory [search](https://github.com/sbwtw/go-filecoin/issues) to see if the problem has already been reported. If it does exist, add a 👍 to the issue to indicate this is also an issue for you, and add a comment if there is extra information you can contribute. If it does not exist, [create a new issue](https://github.com/sbwtw/go-filecoin/issues/new/choose) (using the Bug report template).
 
 - **Write code:** Once you've read this contributing guide, check out [Good First Issues](#good-first-issues) for well-prepared starter issues.
 
@@ -126,7 +126,7 @@ ZenHub adds some useful project management overlay data to GitHub issues.
 
 ### Good First Issues
 
-Ready to begin? Here are well-prepared starter issues ([E-good-first-issue](https://github.com/filecoin-project/go-filecoin/issues?q=is%3Aopen+is%3Aissue+label%3AE-good-first-issue)) for your coding pleasure. They have clear problem statements, pointers to the right areas of the code base, and clear acceptance criteria.
+Ready to begin? Here are well-prepared starter issues ([E-good-first-issue](https://github.com/sbwtw/go-filecoin/issues?q=is%3Aopen+is%3Aissue+label%3AE-good-first-issue)) for your coding pleasure. They have clear problem statements, pointers to the right areas of the code base, and clear acceptance criteria.
 
 To pick up an issue:
 
@@ -135,7 +135,7 @@ To pick up an issue:
 3. For issues labeled `PROTOCOL BREAKING` see [the spec section](#the-spec) for additional instructions.
 4. **Create a PR** with your changes, following the [Pull Request and Code Review guidelines]().
 
-For continued adventures, search for issues with the label [E-help-wanted](https://github.com/filecoin-project/go-filecoin/issues?q=is%3Aopen+is%3Aissue+label%3AE-help-wanted). These are slightly thornier problems that are also reasonably well-prepared.
+For continued adventures, search for issues with the label [E-help-wanted](https://github.com/sbwtw/go-filecoin/issues?q=is%3Aopen+is%3Aissue+label%3AE-help-wanted). These are slightly thornier problems that are also reasonably well-prepared.
 
 ### Pipelines (ZenHub)
 We use ZenHub pipelines to track the flow of work on open issues. 
@@ -161,7 +161,7 @@ Labels are used inclusively, to aid discovery.
 An issue may have multiple labels; not all issues are expected to have labels.
 A label is never expected to be "done" (stable state of no open issues).
 
-Labels mark [dimensions including](https://github.com/filecoin-project/go-filecoin/issues/labels):
+Labels mark [dimensions including](https://github.com/sbwtw/go-filecoin/issues/labels):
 - *Area* (name prefixed with `A-`): an area of code functionality
 - *Category* (name prefixed with `C-`): type of issue, e.g. bug, tech debt, ux
 - *Engagement* (name prefixed with `E-`): issues suitable for broader community involvement
@@ -239,7 +239,7 @@ A **Maintainer** is someone:
 3. **who is actively engaged in project progress and stewardship** by enabling others through project-wide planning, code reviews, design feedback, etc.; and
 4. **who is a model of trustworthiness, technical judgement, civility, and helpfulness**.
 
-Currently, `go-filecoin` maintainers are (alphabetically): @acruikshank, @anorth, @whyrusleeping and @zenground0. They can be mentioned in issues and PRs by tagging `@filecoin-project/go-filecoin-maintainers`.
+Currently, `go-filecoin` maintainers are (alphabetically): @acruikshank, @anorth, @whyrusleeping and @zenground0. They can be mentioned in issues and PRs by tagging `@sbwtw/go-filecoin-maintainers`.
 
 Responsibilities:
 
@@ -253,7 +253,7 @@ Abilities:
 * Manage issues
 * Merge PRs
 
-**Becoming a committer or maintainer:** Anyone can nominate someone for committership or maintainership by filing an [issue](https://github.com/filecoin-project/go-filecoin/issues) pointing to evidence that the candidate (1) meets the definition and (2) is already performing the responsibilities described in Roles. Existing maintainers must unanimously approve the new candidate. Removing a committer or maintainer requires either self-nomination, or confirmation by at least 66% of existing maintainers.
+**Becoming a committer or maintainer:** Anyone can nominate someone for committership or maintainership by filing an [issue](https://github.com/sbwtw/go-filecoin/issues) pointing to evidence that the candidate (1) meets the definition and (2) is already performing the responsibilities described in Roles. Existing maintainers must unanimously approve the new candidate. Removing a committer or maintainer requires either self-nomination, or confirmation by at least 66% of existing maintainers.
 
 
 ## Additional Developer Notes
@@ -310,8 +310,8 @@ import (
 	ipld "github.com/ipfs/go-ipld-format"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/testhelpers"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/types"
+	"github.com/sbwtw/go-filecoin/internal/pkg/testhelpers"
+	"github.com/sbwtw/go-filecoin/internal/pkg/types"
 )
 ```
 

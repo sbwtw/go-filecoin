@@ -8,9 +8,9 @@ import (
 	cbor "github.com/ipfs/go-ipld-cbor"
 	cbg "github.com/whyrusleeping/cbor-gen"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/constants"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/encoding"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm/internal/vmcontext"
+	"github.com/sbwtw/go-filecoin/internal/pkg/constants"
+	"github.com/sbwtw/go-filecoin/internal/pkg/encoding"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm/internal/vmcontext"
 )
 
 type FakeSyscalls = vmcontext.FakeSyscalls

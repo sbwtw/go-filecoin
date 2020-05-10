@@ -15,14 +15,14 @@ import (
 	cmds "github.com/ipfs/go-ipfs-cmds"
 	"github.com/pkg/errors"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm"
 
-	"github.com/filecoin-project/go-filecoin/internal/app/go-filecoin/plumbing/cst"
-	"github.com/filecoin-project/go-filecoin/internal/app/go-filecoin/plumbing/msg"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/message"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/types"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm/gas"
+	"github.com/sbwtw/go-filecoin/internal/app/go-filecoin/plumbing/cst"
+	"github.com/sbwtw/go-filecoin/internal/app/go-filecoin/plumbing/msg"
+	"github.com/sbwtw/go-filecoin/internal/pkg/message"
+	"github.com/sbwtw/go-filecoin/internal/pkg/types"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm/gas"
 )
 
 var msgCmd = &cmds.Command{

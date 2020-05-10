@@ -6,8 +6,8 @@ import (
 
 	"github.com/filecoin-project/specs-actors/actors/runtime/exitcode"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/encoding"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm/gas"
+	"github.com/sbwtw/go-filecoin/internal/pkg/encoding"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm/gas"
 )
 
 // Receipt is what is returned by executing a message on the vm.

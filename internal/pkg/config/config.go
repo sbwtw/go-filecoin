@@ -12,7 +12,7 @@ import (
 	"github.com/filecoin-project/go-address"
 	"github.com/pkg/errors"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/types"
+	"github.com/sbwtw/go-filecoin/internal/pkg/types"
 )
 
 // Config is an in memory representation of the filecoin configuration file

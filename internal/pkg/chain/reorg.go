@@ -1,7 +1,7 @@
 package chain
 
 import (
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
 	"github.com/filecoin-project/specs-actors/actors/abi"
 	"github.com/pkg/errors"
 )

@@ -3,7 +3,7 @@ package syncer
 import (
 	"sync"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
 )
 
 // BadTipSetCache keeps track of bad tipsets that the syncer should not try to

@@ -10,7 +10,7 @@ import (
 	cbor "github.com/ipfs/go-ipld-cbor"
 	"github.com/stretchr/testify/require"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm/actor"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm/actor"
 )
 
 // NewFromString sets a state tree based on an int.

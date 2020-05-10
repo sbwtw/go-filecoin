@@ -7,8 +7,8 @@ import (
 
 	logging "github.com/ipfs/go-log"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/util/moresync"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/util/moresync"
 )
 
 var log = logging.Logger("chainsync.dispatcher")

@@ -28,11 +28,11 @@ import (
 	logging "github.com/ipfs/go-log"
 	"github.com/mitchellh/go-homedir"
 
-	commands "github.com/filecoin-project/go-filecoin/cmd/go-filecoin"
-	"github.com/filecoin-project/go-filecoin/tools/fast"
-	"github.com/filecoin-project/go-filecoin/tools/fast/environment"
-	"github.com/filecoin-project/go-filecoin/tools/fast/series"
-	lpfc "github.com/filecoin-project/go-filecoin/tools/iptb-plugins/filecoin/local"
+	commands "github.com/sbwtw/go-filecoin/cmd/go-filecoin"
+	"github.com/sbwtw/go-filecoin/tools/fast"
+	"github.com/sbwtw/go-filecoin/tools/fast/environment"
+	"github.com/sbwtw/go-filecoin/tools/fast/series"
+	lpfc "github.com/sbwtw/go-filecoin/tools/iptb-plugins/filecoin/local"
 )
 
 var (
@@ -416,7 +416,7 @@ func getFilecoinBinary() (string, error) {
 		return "", err
 	}
 
-	bin := filepath.Join(gopath, "/src/github.com/filecoin-project/go-filecoin/go-filecoin")
+	bin := filepath.Join(gopath, "/src/github.com/sbwtw/go-filecoin/go-filecoin")
 	_, err = os.Stat(bin)
 	if err != nil {
 		return "", err

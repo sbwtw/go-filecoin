@@ -3,11 +3,11 @@ package chain
 import (
 	"testing"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
 	"github.com/stretchr/testify/assert"
 
-	tf "github.com/filecoin-project/go-filecoin/internal/pkg/testhelpers/testflags"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/types"
+	tf "github.com/sbwtw/go-filecoin/internal/pkg/testhelpers/testflags"
+	"github.com/sbwtw/go-filecoin/internal/pkg/types"
 )
 
 func TestStatus(t *testing.T) {

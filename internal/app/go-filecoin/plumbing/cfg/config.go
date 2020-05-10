@@ -1,7 +1,7 @@
 package cfg
 
 import (
-	"github.com/filecoin-project/go-filecoin/internal/pkg/repo"
+	"github.com/sbwtw/go-filecoin/internal/pkg/repo"
 	"sync"
 )
 

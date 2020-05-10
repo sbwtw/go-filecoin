@@ -13,12 +13,12 @@ import (
 	"context"
 	"time"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm"
 	fbig "github.com/filecoin-project/specs-actors/actors/abi/big"
 	"github.com/ipfs/go-cid"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/types"
+	"github.com/sbwtw/go-filecoin/internal/pkg/types"
 )
 
 // Protocol is an interface defining a blockchain consensus protocol.  The

@@ -5,8 +5,8 @@ import (
 	"fmt"
 
 	"github.com/filecoin-project/go-address"
-	commands "github.com/filecoin-project/go-filecoin/cmd/go-filecoin"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
+	commands "github.com/sbwtw/go-filecoin/cmd/go-filecoin"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
 )
 
 // MiningOnce runs the `mining once` command against the filecoin process

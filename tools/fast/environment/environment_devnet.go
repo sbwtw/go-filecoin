@@ -18,7 +18,7 @@ import (
 	logging "github.com/ipfs/go-log"
 	iptb "github.com/ipfs/iptb/testbed"
 
-	"github.com/filecoin-project/go-filecoin/tools/fast"
+	"github.com/sbwtw/go-filecoin/tools/fast"
 )
 
 // Devnet is a FAST lib environment that is meant to be used

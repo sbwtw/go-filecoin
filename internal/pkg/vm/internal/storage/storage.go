@@ -11,8 +11,8 @@ import (
 	format "github.com/ipfs/go-ipld-format"
 	ipld "github.com/ipfs/go-ipld-format"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/constants"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/encoding"
+	"github.com/sbwtw/go-filecoin/internal/pkg/constants"
+	"github.com/sbwtw/go-filecoin/internal/pkg/encoding"
 )
 
 // TODO: limit memory footprint

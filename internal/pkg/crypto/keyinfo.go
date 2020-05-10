@@ -7,7 +7,7 @@ import (
 	"github.com/pkg/errors"
 
 	bls "github.com/sbwtw/filecoin-ffi"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/encoding"
+	"github.com/sbwtw/go-filecoin/internal/pkg/encoding"
 )
 
 // KeyInfo is a key and its type used for signing.

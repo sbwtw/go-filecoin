@@ -3,7 +3,7 @@ package gengen
 import (
 	"context"
 	"fmt"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/drand"
+	"github.com/sbwtw/go-filecoin/internal/pkg/drand"
 	"io"
 	mrand "math/rand"
 
@@ -28,19 +28,19 @@ import (
 	"github.com/libp2p/go-libp2p-core/peer"
 	mh "github.com/multiformats/go-multihash"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/cborutil"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/crypto"
-	e "github.com/filecoin-project/go-filecoin/internal/pkg/enccid"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/encoding"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/genesis"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/proofs"
-	gfcstate "github.com/filecoin-project/go-filecoin/internal/pkg/state"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/types"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm/actor"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm/state"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vmsupport"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/cborutil"
+	"github.com/sbwtw/go-filecoin/internal/pkg/crypto"
+	e "github.com/sbwtw/go-filecoin/internal/pkg/enccid"
+	"github.com/sbwtw/go-filecoin/internal/pkg/encoding"
+	"github.com/sbwtw/go-filecoin/internal/pkg/genesis"
+	"github.com/sbwtw/go-filecoin/internal/pkg/proofs"
+	gfcstate "github.com/sbwtw/go-filecoin/internal/pkg/state"
+	"github.com/sbwtw/go-filecoin/internal/pkg/types"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm/actor"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm/state"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vmsupport"
 )
 
 type cstore struct {
@@ -572,7 +572,7 @@ func (g *GenesisGenerator) updatePower(ctx context.Context, miner address.Addres
 	// but needed due to gain non-zero power in small networks when no miner meets the consensus minimum.
 	// At present, both impls ignore the consensus minimum and rely on this incorrect value.
 	// See https://github.com/filecoin-project/specs-actors/issues/266
-	//     https://github.com/filecoin-project/go-filecoin/issues/3958
+	//     https://github.com/sbwtw/go-filecoin/issues/3958
 	powerState.TotalRawBytePower = big.Add(powerState.TotalRawBytePower, rawPower)
 	powerState.TotalQualityAdjPower = big.Add(powerState.TotalQualityAdjPower, qaPower)
 

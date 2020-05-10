@@ -19,15 +19,15 @@ import (
 	"github.com/ipld/go-car"
 	"github.com/libp2p/go-libp2p-core/crypto"
 
-	"github.com/filecoin-project/go-filecoin/fixtures"
-	"github.com/filecoin-project/go-filecoin/internal/app/go-filecoin/node"
-	"github.com/filecoin-project/go-filecoin/internal/app/go-filecoin/paths"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/config"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/genesis"
-	drandapi "github.com/filecoin-project/go-filecoin/internal/pkg/protocol/drand"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/repo"
-	gengen "github.com/filecoin-project/go-filecoin/tools/gengen/util"
+	"github.com/sbwtw/go-filecoin/fixtures"
+	"github.com/sbwtw/go-filecoin/internal/app/go-filecoin/node"
+	"github.com/sbwtw/go-filecoin/internal/app/go-filecoin/paths"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/config"
+	"github.com/sbwtw/go-filecoin/internal/pkg/genesis"
+	drandapi "github.com/sbwtw/go-filecoin/internal/pkg/protocol/drand"
+	"github.com/sbwtw/go-filecoin/internal/pkg/repo"
+	gengen "github.com/sbwtw/go-filecoin/tools/gengen/util"
 )
 
 var logInit = logging.Logger("commands/init")

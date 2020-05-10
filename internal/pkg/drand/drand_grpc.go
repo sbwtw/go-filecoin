@@ -109,7 +109,7 @@ func (d *GRPC) ReadEntry(ctx context.Context, drandRound Round) (*Entry, error) 
 		// the caller thought it was cancelled already).
 		// This check will mostly, but not completely securely, avoid this. A robust fix requires avoiding
 		// concurrent calls to here completely, which ultimately arise from the goroutine in the mining scheduler.
-		// https://github.com/filecoin-project/go-filecoin/issues/4065
+		// https://github.com/sbwtw/go-filecoin/issues/4065
 		if ctx.Err() != nil {
 			return nil, ctx.Err()
 		}

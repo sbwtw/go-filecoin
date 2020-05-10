@@ -3,13 +3,13 @@ package chainsync
 import (
 	"context"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/chain"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/chainsync/internal/dispatcher"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/chainsync/internal/syncer"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/chainsync/status"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/clock"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/slashing"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/chain"
+	"github.com/sbwtw/go-filecoin/internal/pkg/chainsync/internal/dispatcher"
+	"github.com/sbwtw/go-filecoin/internal/pkg/chainsync/internal/syncer"
+	"github.com/sbwtw/go-filecoin/internal/pkg/chainsync/status"
+	"github.com/sbwtw/go-filecoin/internal/pkg/clock"
+	"github.com/sbwtw/go-filecoin/internal/pkg/slashing"
 )
 
 // BlockProposer allows callers to propose new blocks for inclusion in the chain.

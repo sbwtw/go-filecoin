@@ -8,8 +8,8 @@ import (
 	logging "github.com/ipfs/go-log"
 	"github.com/pkg/errors"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/chain"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/chain"
 )
 
 var log = logging.Logger("chainsampler") // nolint: deadcode

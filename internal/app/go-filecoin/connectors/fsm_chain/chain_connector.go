@@ -6,8 +6,8 @@ import (
 	"github.com/filecoin-project/specs-actors/actors/abi"
 	fsm "github.com/filecoin-project/storage-fsm"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/chain"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/encoding"
+	"github.com/sbwtw/go-filecoin/internal/pkg/chain"
+	"github.com/sbwtw/go-filecoin/internal/pkg/encoding"
 )
 
 // ChainConnector uses the chain store to provide a ChainHead method

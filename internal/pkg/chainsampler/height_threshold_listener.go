@@ -4,7 +4,7 @@ import (
 	"github.com/filecoin-project/specs-actors/actors/abi"
 	"github.com/filecoin-project/specs-actors/actors/builtin/miner"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
 )
 
 // HeightThresholdListener listens for new heaviest chains and notifies when a height threshold is crossed.

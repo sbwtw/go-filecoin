@@ -16,7 +16,7 @@ $> go get -u github.com/ipfs/iptb
 
 Next, ensure you have go-filecoin **installed**, IPTB requires that the go-filecoin bin be in your path:
 ```shell
-$> cd $GOPATH/src/github.com/filecoin-project/go-filecoin
+$> cd $GOPATH/src/github.com/sbwtw/go-filecoin
 $> go run build/main.go deps
 $> go run build/main.go install
 ```

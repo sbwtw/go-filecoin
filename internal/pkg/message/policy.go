@@ -4,12 +4,12 @@ import (
 	"context"
 
 	"github.com/filecoin-project/go-address"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
 	"github.com/filecoin-project/specs-actors/actors/abi"
 	logging "github.com/ipfs/go-log"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/chain"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/types"
+	"github.com/sbwtw/go-filecoin/internal/pkg/chain"
+	"github.com/sbwtw/go-filecoin/internal/pkg/types"
 )
 
 // OutboxMaxAgeRounds is the maximum age (in consensus rounds) to permit messages to stay in the outbound message queue.
@@ -91,7 +91,7 @@ func (p *DefaultQueuePolicy) HandleNewHead(ctx context.Context, target PolicyTar
 	// Note that this will include messages that were never sent by this node since the queue doesn't
 	// keep track of "allowed" senders. However, messages from other addresses will expire
 	// harmlessly.
-	// See discussion in https://github.com/filecoin-project/go-filecoin/issues/3052
+	// See discussion in https://github.com/sbwtw/go-filecoin/issues/3052
 	// Traverse these in descending height order.
 	for _, tipset := range oldTips {
 		for i := 0; i < tipset.Len(); i++ {

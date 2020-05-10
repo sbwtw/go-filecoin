@@ -6,10 +6,10 @@ import (
 	"sync"
 
 	"github.com/cskr/pubsub"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/cborutil"
-	e "github.com/filecoin-project/go-filecoin/internal/pkg/enccid"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/encoding"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/cborutil"
+	e "github.com/sbwtw/go-filecoin/internal/pkg/enccid"
+	"github.com/sbwtw/go-filecoin/internal/pkg/encoding"
 	"github.com/filecoin-project/specs-actors/actors/abi"
 	"github.com/ipfs/go-cid"
 	"github.com/ipfs/go-datastore"
@@ -18,9 +18,9 @@ import (
 	"github.com/pkg/errors"
 	"go.opencensus.io/trace"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/metrics/tracing"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/repo"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm/state"
+	"github.com/sbwtw/go-filecoin/internal/pkg/metrics/tracing"
+	"github.com/sbwtw/go-filecoin/internal/pkg/repo"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm/state"
 )
 
 // NewHeadTopic is the topic used to publish new heads.
@@ -88,7 +88,7 @@ type Store struct {
 	// TODO: rename to notifications.  Also, reconsider ordering assumption depending
 	// on decisions made around the FC node notification system.
 	// TODO: replace this with a synchronous event bus
-	// https://github.com/filecoin-project/go-filecoin/issues/2309
+	// https://github.com/sbwtw/go-filecoin/issues/2309
 	headEvents *pubsub.PubSub
 
 	// Tracks tipsets by height/parentset for use by expected consensus.

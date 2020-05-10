@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/clock"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/clock"
 )
 
 // BlockValidator defines an interface used to validate a blocks syntax and

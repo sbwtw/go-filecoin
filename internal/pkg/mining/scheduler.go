@@ -11,8 +11,8 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/clock"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/clock"
 )
 
 // Scheduler is the mining interface consumers use.
@@ -97,7 +97,7 @@ func (s *timingScheduler) mineLoop(miningCtx context.Context, outCh chan Output,
 		go func(ctx context.Context) {
 			// Mine is not intended to be re-entrant, but using a go-routine here makes it impossible to enforce
 			// single-threaded access.
-			// Some context in https://github.com/filecoin-project/go-filecoin/issues/4065
+			// Some context in https://github.com/sbwtw/go-filecoin/issues/4065
 			s.worker.Mine(ctx, base, nullBlkCount, outCh)
 			doneWg.Done()
 		}(workContext)

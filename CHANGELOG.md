@@ -12,7 +12,7 @@ Two changes have been made to enable software releases without restarting the ne
 
 #### 🚀 Updated Proof-of-Spacetime (PoSt)
 
-A new proof construction, [Rational PoSt](https://github.com/filecoin-project/specs/blob/master/proof-of-spacetime.md), has been [implemented](https://github.com/filecoin-project/rust-fil-proofs/pull/763) and [integrated](https://github.com/filecoin-project/go-filecoin/pull/3318). This construction is the same shape as our candidate for testnet and resolves outstanding limitations on proving over many sectors. 
+A new proof construction, [Rational PoSt](https://github.com/filecoin-project/specs/blob/master/proof-of-spacetime.md), has been [implemented](https://github.com/filecoin-project/rust-fil-proofs/pull/763) and [integrated](https://github.com/sbwtw/go-filecoin/pull/3318). This construction is the same shape as our candidate for testnet and resolves outstanding limitations on proving over many sectors. 
 
 #### 🎟️ Block and consensus changes
 
@@ -26,7 +26,7 @@ Block headers are now signed by miners, and election tickets form an array in ea
 
 #### ⚡ Chain syncing performance
 
-Previously in go-filecoin 0.4, we aimed to speed up chain syncing by focusing on the first phase: chain fetching. We have identified the worst of the fetching contention issues that caused forking and unreliable message processing in 0.4. Some of those fixes are now complete, while others such as [#3460](https://github.com/filecoin-project/go-filecoin/pull/3460) are in progress. There may still be some issues that could cause forking that we will continue to work on and update the coming weeks. Please let us know your feedback. 
+Previously in go-filecoin 0.4, we aimed to speed up chain syncing by focusing on the first phase: chain fetching. We have identified the worst of the fetching contention issues that caused forking and unreliable message processing in 0.4. Some of those fixes are now complete, while others such as [#3460](https://github.com/sbwtw/go-filecoin/pull/3460) are in progress. There may still be some issues that could cause forking that we will continue to work on and update the coming weeks. Please let us know your feedback. 
 
 go-filecoin 0.5 also continues with improvements to the second phase: chain validation. By switching from HAMT bitwidth 8 to HAMT bitwidth 5, we see a general average improvement in benchmarks of about 4-to-1, across memory usage, speed of operations, and bytes written to disk. Users are encouraged to measure and share their own benchmarks. In addition, optimizations to encoding and decoding of HAMT data structures may result in additional performance improvements. 
 
@@ -40,9 +40,9 @@ Developers are invited to read and comment on the new [HTTP API design](https://
 
 - The proving period is now configured to 300 rounds (2.5 hrs), down from 1000 rounds (10 hours). We’ve made this temporary change for more frequent node interaction and faster experimentation, and we expect to increase the proving period again in the future.
 - Groth parameters are no longer fetched from the network, but instead locally generated when needed. This can take many minutes (but is more reliable than network). 
-- [Block header structure](https://github.com/filecoin-project/go-filecoin/blob/release-0.5.0/types/block.go) has changed, so tools which parse chain data will need updating.
+- [Block header structure](https://github.com/sbwtw/go-filecoin/blob/release-0.5.0/types/block.go) has changed, so tools which parse chain data will need updating.
 - The default storage miner waits 15 rounds _after the start of the proving window_ before beginning a PoSt computation, but is not robust to a re-org of _more than 15 blocks_ that changes its challenge seed.
-- If you are seeing panics or write failures during sealing, it may be related to disk space requirements. Currently the sector builder uses ~11GiB of free disk space, and assumes it is available on the `/tmp` partition. An proposal to make that directory configurable is in [#3497](https://github.com/filecoin-project/go-filecoin/issues/3497)
+- If you are seeing panics or write failures during sealing, it may be related to disk space requirements. Currently the sector builder uses ~11GiB of free disk space, and assumes it is available on the `/tmp` partition. An proposal to make that directory configurable is in [#3497](https://github.com/sbwtw/go-filecoin/issues/3497)
 
 ### CLI diff
 
@@ -56,7 +56,7 @@ Developers are invited to read and comment on the new [HTTP API design](https://
 
 ### Changelog
 
-A full list of all [67 PRs](https://github.com/filecoin-project/go-filecoin/pulls?utf8=✓&q=is%3Apr+is%3Amerged+merged%3A2019-09-03..2019-09-23+) in this release, including many bugfixes not listed here, can be found on Github.
+A full list of all [67 PRs](https://github.com/sbwtw/go-filecoin/pulls?utf8=✓&q=is%3Apr+is%3Amerged+merged%3A2019-09-03..2019-09-23+) in this release, including many bugfixes not listed here, can be found on Github.
 
 ### Contributors
 
@@ -66,10 +66,10 @@ A full list of all [67 PRs](https://github.com/filecoin-project/go-filecoin/pull
 
 Would you like to contribute to the Filecoin project and don’t know how? Here are a few places you can get started:
 
-- Check out the [Contributing Guidelines](https://github.com/filecoin-project/go-filecoin/blob/master/CONTRIBUTING.md)
+- Check out the [Contributing Guidelines](https://github.com/sbwtw/go-filecoin/blob/master/CONTRIBUTING.md)
 - Look for issues with the `good-first-issue` label in [go-filecoin](https://docs.google.com/document/d/1dfTVASs9cQMo4NPqJmXjEEX-Ju_M9Vw-4AelN1aHOV8/edit#) and [rust-fil-proofs](https://github.com/filecoin-project/rust-fil-proofs/issues?q=is%3Aissue+is%3Aopen+label%3A"good+first+issue")
 - Join the [community chat on Matrix/Slack](https://github.com/filecoin-project/community#chat), introduce yourself in #_fil-lobby, and let us know where you would like to contribute
-- Join the [user devnet](https://github.com/filecoin-project/go-filecoin/wiki/Getting-Started)
+- Join the [user devnet](https://github.com/sbwtw/go-filecoin/wiki/Getting-Started)
 
 ### ⁉️ Do you have questions?
 
@@ -136,7 +136,7 @@ Miners now can use the `mining seal-now` command to seal "empty" sectors directl
 - The mining start command will fail if Groth parameters for the sector size which the miner is configured do not yet exists in the parameter cache.
   Previously Groth parameters would be generated on demand if they were missing.
 - The Groth parameters cache location has changed from `/tmp/filecoin-proof-parameters` to `/var/tmp/filecoin-proof-parameters`.
-- Parameters are no longer downloaded by default. Nodes intending to mine must fetch parameters explicitly. See the [wiki](https://github.com/filecoin-project/go-filecoin/wiki/Mining-Filecoin#start-mining) for more information.
+- Parameters are no longer downloaded by default. Nodes intending to mine must fetch parameters explicitly. See the [wiki](https://github.com/sbwtw/go-filecoin/wiki/Mining-Filecoin#start-mining) for more information.
 - The paramfetch binary now uses ipget to download Groth parameters and keys instead of hitting the IPFS (HTTP) Gateway.
   This will make paramfetch slow, but more reliable.
 - Proof logs will no longer be displayed in log output by default and must be enabled by setting `RUST_LOG=info` before starting the daemon.
@@ -173,11 +173,11 @@ This release drives home previous work on repo migrations. The `go-filecoin-migr
 
 #### 📈Major testing improvements
 
-Testing is the silent champion of reliability and development speed. This release includes [tons of ](https://github.com/filecoin-project/go-filecoin/pull/2972)[behind](https://github.com/filecoin-project/go-filecoin/pull/2700) [the scenes](https://github.com/filecoin-project/go-filecoin/pull/2990) [work](https://github.com/filecoin-project/go-filecoin/pull/2919) improving the quality of existing unit and integration tests as well as adding new tests to existing code. Continued improvements to the [FAST](https://github.com/filecoin-project/go-filecoin/tree/master/tools/fast) framework promise to further accelerate integration testing and devnet deployments. 
+Testing is the silent champion of reliability and development speed. This release includes [tons of ](https://github.com/sbwtw/go-filecoin/pull/2972)[behind](https://github.com/sbwtw/go-filecoin/pull/2700) [the scenes](https://github.com/sbwtw/go-filecoin/pull/2990) [work](https://github.com/sbwtw/go-filecoin/pull/2919) improving the quality of existing unit and integration tests as well as adding new tests to existing code. Continued improvements to the [FAST](https://github.com/sbwtw/go-filecoin/tree/master/tools/fast) framework promise to further accelerate integration testing and devnet deployments. 
 
 #### 💳 Tech debt paydown
 
-This release is not playing around when it comes to paying off technical debt. Fundamental chain refactors include an [improved immutable tipset type](https://github.com/filecoin-project/go-filecoin/pull/2837) and tipset cache sharing are at the top of the list. A major refactor of the [message](https://github.com/filecoin-project/go-filecoin/pull/2798) [handling](https://github.com/filecoin-project/go-filecoin/pull/2796) [system](https://github.com/filecoin-project/go-filecoin/pull/2795) into inbox and outbox queues is also a notable improvement. Don’t forget about a consistent internal attoFIL token type, a sleek new miner deal acceptance codepath, sector builder reliability fixes... the list goes on. We are excited to be shipping higher quality software with each release so that we can move faster towards a robust mainnet. 
+This release is not playing around when it comes to paying off technical debt. Fundamental chain refactors include an [improved immutable tipset type](https://github.com/sbwtw/go-filecoin/pull/2837) and tipset cache sharing are at the top of the list. A major refactor of the [message](https://github.com/sbwtw/go-filecoin/pull/2798) [handling](https://github.com/sbwtw/go-filecoin/pull/2796) [system](https://github.com/sbwtw/go-filecoin/pull/2795) into inbox and outbox queues is also a notable improvement. Don’t forget about a consistent internal attoFIL token type, a sleek new miner deal acceptance codepath, sector builder reliability fixes... the list goes on. We are excited to be shipping higher quality software with each release so that we can move faster towards a robust mainnet. 
 
 ### Changelog
 
@@ -282,13 +282,13 @@ A full list of [all 207 PRs in this release](https://github.com/search?p=2&q=is%
 
 Would you like to contribute to the Filecoin project and don’t know how? Here are a few places you can get started:
 
-- Check out the [Contributing Guidelines](https://github.com/filecoin-project/go-filecoin/blob/master/CONTRIBUTING.md)
+- Check out the [Contributing Guidelines](https://github.com/sbwtw/go-filecoin/blob/master/CONTRIBUTING.md)
 
 - Look for issues with the `good-first-issue` label in [go-filecoin](https://docs.google.com/document/d/1dfTVASs9cQMo4NPqJmXjEEX-Ju_M9Vw-4AelN1aHOV8/edit#) and [rust-fil-proofs](https://github.com/filecoin-project/rust-fil-proofs/issues?q=is%3Aissue+is%3Aopen+label%3A"good+first+issue")
 
 - Join the [community chat on Matrix/Slack](https://github.com/filecoin-project/community#chat), introduce yourself in #_fil-lobby, and let us know where you would like to contribute
 
-- Join the [user devnet](https://github.com/filecoin-project/go-filecoin/wiki/Getting-Started)
+- Join the [user devnet](https://github.com/sbwtw/go-filecoin/wiki/Getting-Started)
 
 ### ⁉️ Do you have questions?
 
@@ -302,8 +302,8 @@ We're happy to announce go-filecoin 0.2.4. This is a patch release with block va
 
 #### 🌳 Features
 
-- Timestamp block | [go-filecoin #2897](https://github.com/filecoin-project/go-filecoin/pull/2897)
-- Partial Block validation | [go-filecoin #2899](https://github.com/filecoin-project/go-filecoin/pull/2899), [go-filecoin #2882](https://github.com/filecoin-project/go-filecoin/pull/2882), [go-filecoin #2914](https://github.com/filecoin-project/go-filecoin/pull/2914)
+- Timestamp block | [go-filecoin #2897](https://github.com/sbwtw/go-filecoin/pull/2897)
+- Partial Block validation | [go-filecoin #2899](https://github.com/sbwtw/go-filecoin/pull/2899), [go-filecoin #2882](https://github.com/sbwtw/go-filecoin/pull/2882), [go-filecoin #2914](https://github.com/sbwtw/go-filecoin/pull/2914)
 
 #### ☝🏽 Upgrade notice
 
@@ -315,18 +315,18 @@ As a reminder, only the latest version of go-filecoin will connect to the user d
 
 ## go-filecoin 0.2.2
 
-We're happy to announce go-filecoin 0.2.2. This is a maintenance release with bug fixes and debugging improvements. After the 0.2.1 release, we found a bug in the dht ([#2753](https://github.com/filecoin-project/go-filecoin/issues/2753)) that caused some nodes to panic. This was fixed in [#2754](https://github.com/filecoin-project/go-filecoin/pull/2754) by bumping the [go-libp2p-kad-dht](https://github.com/libp2p/go-libp2p-kad-dht) version from 0.0.4 to 0.0.8.
+We're happy to announce go-filecoin 0.2.2. This is a maintenance release with bug fixes and debugging improvements. After the 0.2.1 release, we found a bug in the dht ([#2753](https://github.com/sbwtw/go-filecoin/issues/2753)) that caused some nodes to panic. This was fixed in [#2754](https://github.com/sbwtw/go-filecoin/pull/2754) by bumping the [go-libp2p-kad-dht](https://github.com/libp2p/go-libp2p-kad-dht) version from 0.0.4 to 0.0.8.
 
 #### 🐞 Bug fixes
 
-- Update to go-libp2p-kad-dht@v0.0.8 | [go-filecoin #2754](https://github.com/filecoin-project/go-filecoin/pull/2754)
-- Fix output for set price | [go-filecoin #2727](https://github.com/filecoin-project/go-filecoin/pull/2727)
+- Update to go-libp2p-kad-dht@v0.0.8 | [go-filecoin #2754](https://github.com/sbwtw/go-filecoin/pull/2754)
+- Fix output for set price | [go-filecoin #2727](https://github.com/sbwtw/go-filecoin/pull/2727)
 
 #### 🌳 Features
 
-- Add an approval step to user devnet deploy | [go-filecoin #2765](https://github.com/filecoin-project/go-filecoin/pull/2765)
-- Log messages proper printing | [go-filecoin #2728](https://github.com/filecoin-project/go-filecoin/pull/2728)
-- Add filecoin version command to inspect output | [go-filecoin #2725](https://github.com/filecoin-project/go-filecoin/pull/2725)
+- Add an approval step to user devnet deploy | [go-filecoin #2765](https://github.com/sbwtw/go-filecoin/pull/2765)
+- Log messages proper printing | [go-filecoin #2728](https://github.com/sbwtw/go-filecoin/pull/2728)
+- Add filecoin version command to inspect output | [go-filecoin #2725](https://github.com/sbwtw/go-filecoin/pull/2725)
 
 #### ☝🏽 Upgrade notice
 
@@ -344,7 +344,7 @@ We're happy to announce go-filecoin 0.2.1. This release is heavy on behind-the-s
 
 When a filecoin node is first created, it must download and verify the chain. We call this “chain syncing”. While initial commands (such as tapping the faucet or dashboard streaming) can be run immediately, any other commands (such as mining commands) will return errors until chain syncing is complete. Currently, this can take several hours.
 
-To clarify, we’ve added [wiki updates](https://github.com/filecoin-project/go-filecoin/wiki/Getting-Started#wait-for-chain-sync), better status messages, and cleaner console output for chain syncing. In future releases, we’ll also address the underlying problem of slow chain syncing.
+To clarify, we’ve added [wiki updates](https://github.com/sbwtw/go-filecoin/wiki/Getting-Started#wait-for-chain-sync), better status messages, and cleaner console output for chain syncing. In future releases, we’ll also address the underlying problem of slow chain syncing.
 
 #### 💠 Sector storage configuration
 
@@ -392,7 +392,7 @@ We’ve taken several steps to harden the message pool. The pool now rejects mes
 
 #### 🔗 Proofs integration
 
-Behind the scenes, much groundwork has been laid for more flexible and powerful storage proofs. This release includes more efficient memory utilization when writing large pieces to a sector. It also includes initial support for piece inclusion proofs, [multiple sector sizes](https://github.com/filecoin-project/go-filecoin/issues/2530), and [variable proof lengths](https://github.com/filecoin-project/go-filecoin/pull/2607). 
+Behind the scenes, much groundwork has been laid for more flexible and powerful storage proofs. This release includes more efficient memory utilization when writing large pieces to a sector. It also includes initial support for piece inclusion proofs, [multiple sector sizes](https://github.com/sbwtw/go-filecoin/issues/2530), and [variable proof lengths](https://github.com/sbwtw/go-filecoin/pull/2607). 
 
 #### 🔮 Proofs performance
 
@@ -402,7 +402,7 @@ Over in `rust-fil-proofs`, progress is accelerating on more complete and efficie
 
 #### 🏁 FAST (Filecoin Automation & System Toolkit)
 
-We have significantly improved the FAST testing system for Filecoin since the last release. FAST now automatically includes relevant log data and messages from testing nodes in the event of a test failure. FAST also has an all-new localnet tool to quickly and easily set up local Filecoin node clusters for testing and experimentation. See [the localnet readme](https://github.com/filecoin-project/go-filecoin/blob/master/tools/fast/bin/localnet/README.md) for details.
+We have significantly improved the FAST testing system for Filecoin since the last release. FAST now automatically includes relevant log data and messages from testing nodes in the event of a test failure. FAST also has an all-new localnet tool to quickly and easily set up local Filecoin node clusters for testing and experimentation. See [the localnet readme](https://github.com/sbwtw/go-filecoin/blob/master/tools/fast/bin/localnet/README.md) for details.
 
 #### 👾 Go modules
 
@@ -583,8 +583,8 @@ A full list of [all 177 PRs in this release](https://github.com/search?q=is%3Apr
 
 Would you like to contribute to the Filecoin project and don’t know how? Here are a few places you can get started:
 
-- Check out the [Contributing Guidelines](https://github.com/filecoin-project/go-filecoin/blob/master/CONTRIBUTING.md)
-- Look for issues with the `good-first-issue` label in [go-filecoin](https://github.com/filecoin-project/go-filecoin/issues?q=is%3Aissue+is%3Aopen+label%3A"good+first+issue") and [rust-fil-proofs](https://github.com/filecoin-project/rust-fil-proofs/issues?q=is%3Aissue+is%3Aopen+label%3A"good+first+issue")
+- Check out the [Contributing Guidelines](https://github.com/sbwtw/go-filecoin/blob/master/CONTRIBUTING.md)
+- Look for issues with the `good-first-issue` label in [go-filecoin](https://github.com/sbwtw/go-filecoin/issues?q=is%3Aissue+is%3Aopen+label%3A"good+first+issue") and [rust-fil-proofs](https://github.com/filecoin-project/rust-fil-proofs/issues?q=is%3Aissue+is%3Aopen+label%3A"good+first+issue")
 - Join the [community chat on Matrix/Slack](https://github.com/filecoin-project/community#chat), introduce yourself in #_fil-lobby, and let us know where you would like to contribute
 
 ### ⁉️ Do you have questions?
@@ -601,11 +601,11 @@ We're happy to announce go-filecoin 0.1.4. This release contains a better instal
 
 #### 💝 Binary releases
 
-Linux and MacOS binaries for go-filecoin are now available! See [Installing from binary](https://github.com/filecoin-project/go-filecoin/wiki/Getting-Started#installing-from-binary) for instructions.
+Linux and MacOS binaries for go-filecoin are now available! See [Installing from binary](https://github.com/sbwtw/go-filecoin/wiki/Getting-Started#installing-from-binary) for instructions.
 
 #### 🍱 Precompiled proofs parameters
 
-Running secure proofs requires parameter files that are several GB in size. Previously, these files were generated at install, an extremely memory-intensive process causing slow or impossible builds for many users. Now, you can download pre-generated files during install by running `paramfetch`. This step is now included in the [Installing from binary](https://github.com/filecoin-project/go-filecoin/wiki/Getting-Started#installing-from-binary) instructions.
+Running secure proofs requires parameter files that are several GB in size. Previously, these files were generated at install, an extremely memory-intensive process causing slow or impossible builds for many users. Now, you can download pre-generated files during install by running `paramfetch`. This step is now included in the [Installing from binary](https://github.com/sbwtw/go-filecoin/wiki/Getting-Started#installing-from-binary) instructions.
 
 #### 🦖 Version checking
 
@@ -625,7 +625,7 @@ We’ve upgraded to [go-libp2p](http://github.com/libp2p/go-libp2p) 6.0.35 which
 
 #### 🎈 Better message sending
 
-In the past, if messages failed, they failed silently. go-filecoin would continue to select nonces higher than the sent message, effectively deadlocking message sending. We have now implemented several improvements to message sending: incoming and outgoing queues, better nonce selection logic, and a message timeout after a certain number of blocks. See [message status](https://github.com/filecoin-project/go-filecoin/blob/6a34245644cd62436239b885cd7ba1f0f29d0ca5/commands/message.go) and mpool ls/show/rm commands for more.
+In the past, if messages failed, they failed silently. go-filecoin would continue to select nonces higher than the sent message, effectively deadlocking message sending. We have now implemented several improvements to message sending: incoming and outgoing queues, better nonce selection logic, and a message timeout after a certain number of blocks. See [message status](https://github.com/sbwtw/go-filecoin/blob/6a34245644cd62436239b885cd7ba1f0f29d0ca5/commands/message.go) and mpool ls/show/rm commands for more.
 
 #### 🔗 Chain syncing is faster
 
@@ -641,7 +641,7 @@ In the past, the context deadline was set artificially low for file transfer. Th
 
 FAST is a common library of go-filecoin code that can be used in daemon testing, devnet initialization, and other applications like network randomization that involve managing nodes, running commands against them, and observing their state.
 
-Using FAST, we’ve developed [localnet](https://github.com/filecoin-project/go-filecoin/tree/master/tools/fast/bin/localnet), a new tool to quickly and easily set up a local network for testing, debugging, development, and more. Want to give it a whirl? Check out the [localnet README](https://github.com/filecoin-project/go-filecoin/tree/master/tools/fast/bin/localnet).
+Using FAST, we’ve developed [localnet](https://github.com/sbwtw/go-filecoin/tree/master/tools/fast/bin/localnet), a new tool to quickly and easily set up a local network for testing, debugging, development, and more. Want to give it a whirl? Check out the [localnet README](https://github.com/sbwtw/go-filecoin/tree/master/tools/fast/bin/localnet).
 
 #### 👾 Porcelain/Plumbing refactor for node object
 
@@ -649,7 +649,7 @@ Previously, the node object contained both interfaces and internals for much of 
 
 ### Changelog
 
-A full list of [all 200 PRs in this release](https://github.com/filecoin-project/go-filecoin/pulls?utf8=%E2%9C%93&q=is%3Apr+merged%3A2019-02-14..2019-03-26) can be found on Github.
+A full list of [all 200 PRs in this release](https://github.com/sbwtw/go-filecoin/pulls?utf8=%E2%9C%93&q=is%3Apr+merged%3A2019-02-14..2019-03-26) can be found on Github.
 
 ### Contributors
 
@@ -741,8 +741,8 @@ A full list of [all 200 PRs in this release](https://github.com/filecoin-project
 
 Would you like to contribute to the Filecoin project and don’t know how? Here are a few places you can get started:
 
-- Check out the [Contributing Guidelines](https://github.com/filecoin-project/go-filecoin/blob/master/CONTRIBUTING.md)
-- Look for issues with the `good-first-issue` label in [go-filecoin](https://github.com/filecoin-project/go-filecoin/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22e-good-first-issue%22+) and [rust-fil-proofs](https://github.com/filecoin-project/rust-fil-proofs/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
+- Check out the [Contributing Guidelines](https://github.com/sbwtw/go-filecoin/blob/master/CONTRIBUTING.md)
+- Look for issues with the `good-first-issue` label in [go-filecoin](https://github.com/sbwtw/go-filecoin/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22e-good-first-issue%22+) and [rust-fil-proofs](https://github.com/filecoin-project/rust-fil-proofs/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
 - Join the [community chat on Matrix/Slack](https://github.com/filecoin-project/community#chat), introduce yourself in #_fil-lobby, and let us know where you would like to contribute
 
 ### ⁉️ Do you have questions?

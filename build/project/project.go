@@ -3,8 +3,8 @@ package project
 import (
 	"path/filepath"
 
-	"github.com/filecoin-project/go-filecoin/build/flags"
-	"github.com/filecoin-project/go-filecoin/build/internal/helpers"
+	"github.com/sbwtw/go-filecoin/build/flags"
+	"github.com/sbwtw/go-filecoin/build/internal/helpers"
 )
 
 // Root return the project root joined with any path fragments

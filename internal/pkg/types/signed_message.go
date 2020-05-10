@@ -11,9 +11,9 @@ import (
 	ipld "github.com/ipfs/go-ipld-format"
 	"github.com/pkg/errors"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/constants"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/crypto"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/encoding"
+	"github.com/sbwtw/go-filecoin/internal/pkg/constants"
+	"github.com/sbwtw/go-filecoin/internal/pkg/crypto"
+	"github.com/sbwtw/go-filecoin/internal/pkg/encoding"
 )
 
 // SignedMessage contains a message and its signature

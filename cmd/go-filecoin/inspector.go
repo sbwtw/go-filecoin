@@ -8,9 +8,9 @@ import (
 	cmds "github.com/ipfs/go-ipfs-cmds"
 	sysi "github.com/whyrusleeping/go-sysinfo"
 
-	"github.com/filecoin-project/go-filecoin/build/flags"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/config"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/repo"
+	"github.com/sbwtw/go-filecoin/build/flags"
+	"github.com/sbwtw/go-filecoin/internal/pkg/config"
+	"github.com/sbwtw/go-filecoin/internal/pkg/repo"
 )
 
 var inspectCmd = &cmds.Command{

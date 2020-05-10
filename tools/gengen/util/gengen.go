@@ -17,10 +17,10 @@ import (
 	dag "github.com/ipfs/go-merkledag"
 	car "github.com/ipld/go-car"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/crypto"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/genesis"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/types"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/crypto"
+	"github.com/sbwtw/go-filecoin/internal/pkg/genesis"
+	"github.com/sbwtw/go-filecoin/internal/pkg/types"
 )
 
 // CreateStorageMinerConfig holds configuration options used to create a storage

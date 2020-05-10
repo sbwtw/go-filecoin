@@ -36,7 +36,7 @@ including being sure that:
 - information, including error messages, cannot not leak, for example in a network message;
 - content reference by content identifier is validated as having that identifier.
 
-Having said all this, **we invite and welcome [contribution of issues](https://github.com/filecoin-project/go-filecoin/issues)** 
+Having said all this, **we invite and welcome [contribution of issues](https://github.com/sbwtw/go-filecoin/issues)** 
 for specific problems in the code. 
 If you notice a security issue please label it with the `i-security` label. 
 If you notice a scaling issue please label it with the `i-scaling` label.

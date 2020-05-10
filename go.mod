@@ -1,4 +1,4 @@
-module github.com/filecoin-project/go-filecoin
+module github.com/sbwtw/go-filecoin
 
 go 1.13
 
@@ -29,8 +29,8 @@ require (
 	github.com/filecoin-project/go-statemachine v0.0.0-20200314004106-2e7830fc1948 // indirect
 	github.com/filecoin-project/go-statestore v0.1.0
 	github.com/filecoin-project/go-storedcounter v0.0.0-20200421200003-1c99c62e8a5b
-	github.com/filecoin-project/sector-storage v0.0.0-20200509005126-ebc27d314ba4
-	github.com/filecoin-project/specs-actors v0.4.1-0.20200508202406-42be6629284d
+	github.com/filecoin-project/sector-storage v0.0.0-20200508203401-a74812ba12f3
+	github.com/filecoin-project/specs-actors v0.4.0
 	github.com/filecoin-project/specs-storage v0.0.0-20200427220711-ae5a7f26c65f // indirect
 	github.com/filecoin-project/storage-fsm v0.0.0-20200508212339-4980cb4c92b1
 	github.com/fxamacker/cbor v1.5.0
@@ -102,7 +102,7 @@ require (
 	github.com/prometheus/procfs v0.0.11 // indirect
 	github.com/sbwtw/filecoin-ffi v0.26.3-0.20200510031525-9a3531964af2
 	github.com/sbwtw/go-paramfetch v0.0.2-0.20200501150428-cfd15070955e
-	github.com/sbwtw/sector-storage v0.0.0-20200510010624-2f5b4ea2feca
+	github.com/sbwtw/sector-storage v0.0.0-20200510082835-bd565b432060
 	github.com/spf13/afero v1.2.2 // indirect
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/spf13/viper v1.5.0 // indirect
@@ -125,4 +125,5 @@ require (
 )
 
 replace github.com/sbwtw/filecoin-ffi => ./vendors/filecoin-ffi
+
 replace github.com/filecoin-project/filecoin-ffi => ./vendors/filecoin-ffi-origin

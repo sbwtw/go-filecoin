@@ -15,10 +15,10 @@ import (
 	"github.com/stretchr/testify/require"
 	typegen "github.com/whyrusleeping/cbor-gen"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm/internal/gascost"
-	vmr "github.com/filecoin-project/go-filecoin/internal/pkg/vm/internal/runtime"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm/internal/vmcontext"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm/internal/gascost"
+	vmr "github.com/sbwtw/go-filecoin/internal/pkg/vm/internal/runtime"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm/internal/vmcontext"
 )
 
 func TestActorStore(t *testing.T) {

@@ -1,9 +1,9 @@
 package cst
 
 import (
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/chainsync"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/chainsync/status"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/chainsync"
+	"github.com/sbwtw/go-filecoin/internal/pkg/chainsync/status"
 )
 
 type chainSync interface {

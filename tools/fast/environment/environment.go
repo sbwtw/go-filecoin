@@ -8,7 +8,7 @@ import (
 	"github.com/filecoin-project/go-address"
 	logging "github.com/ipfs/go-log"
 
-	"github.com/filecoin-project/go-filecoin/tools/fast"
+	"github.com/sbwtw/go-filecoin/tools/fast"
 )
 
 // ErrNoGenesisMiner is returned by GenesisMiner if the environment does not

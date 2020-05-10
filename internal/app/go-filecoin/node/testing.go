@@ -13,13 +13,13 @@ import (
 	"github.com/libp2p/go-libp2p-core/peer"
 	"github.com/stretchr/testify/require"
 
-	"github.com/filecoin-project/go-filecoin/fixtures"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/config"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/constants"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/proofs"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/wallet"
-	gengen "github.com/filecoin-project/go-filecoin/tools/gengen/util"
+	"github.com/sbwtw/go-filecoin/fixtures"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/config"
+	"github.com/sbwtw/go-filecoin/internal/pkg/constants"
+	"github.com/sbwtw/go-filecoin/internal/pkg/proofs"
+	"github.com/sbwtw/go-filecoin/internal/pkg/wallet"
+	gengen "github.com/sbwtw/go-filecoin/tools/gengen/util"
 )
 
 // ChainSeed is a generalized struct for configuring node

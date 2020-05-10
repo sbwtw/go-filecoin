@@ -242,6 +242,8 @@ github.com/filecoin-project/specs-actors v0.4.0 h1:ywlvhg4V46D1jrhW8XeXD6K3+lP5r
 github.com/filecoin-project/specs-actors v0.4.0/go.mod h1:UW3ft23q6VS8wQoNqLWjENsu9gu1uh6lxOd+H8cwhT8=
 github.com/filecoin-project/specs-actors v0.4.1-0.20200508202406-42be6629284d h1:vzuhvR+huV95QU+KSBCyQvLP6LUtwrPUyeUTzOx1B5I=
 github.com/filecoin-project/specs-actors v0.4.1-0.20200508202406-42be6629284d/go.mod h1:UW3ft23q6VS8wQoNqLWjENsu9gu1uh6lxOd+H8cwhT8=
+github.com/filecoin-project/specs-actors v0.4.1-0.20200509020627-3c96f54f3d7d h1:xK1KzVM6DAJABSnP5GhBMIk5zCDnJR5LSkxKJW1zFzA=
+github.com/filecoin-project/specs-actors v0.4.1-0.20200509020627-3c96f54f3d7d/go.mod h1:UW3ft23q6VS8wQoNqLWjENsu9gu1uh6lxOd+H8cwhT8=
 github.com/filecoin-project/specs-storage v0.0.0-20200410185809-9fbaaa08f275 h1:6OTcpsTQBQM0f/A67oEi4E4YtYd6fzkMqbU8cPIWMMs=
 github.com/filecoin-project/specs-storage v0.0.0-20200410185809-9fbaaa08f275/go.mod h1:xJ1/xl9+8zZeSSSFmDC3Wr6uusCTxyYPI0VeNVSFmPE=
 github.com/filecoin-project/specs-storage v0.0.0-20200417134612-61b2d91a6102/go.mod h1:xJ1/xl9+8zZeSSSFmDC3Wr6uusCTxyYPI0VeNVSFmPE=
@@ -1267,6 +1269,10 @@ github.com/sbwtw/go-paramfetch v0.0.2-0.20200501150428-cfd15070955e h1:SaRinCqdE
 github.com/sbwtw/go-paramfetch v0.0.2-0.20200501150428-cfd15070955e/go.mod h1:UDMZkf5XaNj9pKYStqu43aDctqdiGinPSHaSXngFI9U=
 github.com/sbwtw/sector-storage v0.0.0-20200510010624-2f5b4ea2feca h1:Z13pGaH9+5KOc32PF+Abms484FOGTIFK46OcJRXgg00=
 github.com/sbwtw/sector-storage v0.0.0-20200510010624-2f5b4ea2feca/go.mod h1:/iOGPRG6Eou/hvSBOhSGA0D0x6heRckDMnf/UEmWdXk=
+github.com/sbwtw/sector-storage v0.0.0-20200510024556-1a6fdb469af4 h1:0G1grl7oRGcF82AMrfVX6PlbFrpHe+ONRsRhnWDyND0=
+github.com/sbwtw/sector-storage v0.0.0-20200510024556-1a6fdb469af4/go.mod h1:Rpk4ti8eQaN0QMclRrr+yvUfes4hV91Nv9zdHA4Jae8=
+github.com/sbwtw/sector-storage v0.0.0-20200510082835-bd565b432060 h1:W8E109lRaonxMgGr5/hen6nMASPPiPrNNDrbwJTi+MQ=
+github.com/sbwtw/sector-storage v0.0.0-20200510082835-bd565b432060/go.mod h1:PF1yUC/FjUjaeNS3IxjP1hqVyI5Od6m309jYaKB6Q2o=
 github.com/securego/gosec v0.0.0-20191002120514-e680875ea14d h1:BzRvVq1EHuIjxpijCEKpAxzKUUMurOQ4sknehIATRh8=
 github.com/securego/gosec v0.0.0-20191002120514-e680875ea14d/go.mod h1:w5+eXa0mYznDkHaMCXA4XYffjlH+cy1oyKbfzJXa2Do=
 github.com/shirou/gopsutil v0.0.0-20190901111213-e4ec7b275ada/go.mod h1:WWnYX4lzhCH5h/3YBfyVA3VbLYjlMZZAQcW9ojMexNc=

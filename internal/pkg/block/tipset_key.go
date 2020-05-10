@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"sort"
 
-	e "github.com/filecoin-project/go-filecoin/internal/pkg/enccid"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/encoding"
+	e "github.com/sbwtw/go-filecoin/internal/pkg/enccid"
+	"github.com/sbwtw/go-filecoin/internal/pkg/encoding"
 	"github.com/ipfs/go-cid"
 	"github.com/pkg/errors"
 )

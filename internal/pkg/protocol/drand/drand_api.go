@@ -6,7 +6,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/drand"
+	"github.com/sbwtw/go-filecoin/internal/pkg/drand"
 )
 
 type Config interface {

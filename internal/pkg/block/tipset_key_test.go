@@ -8,10 +8,10 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	blk "github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/encoding"
-	tf "github.com/filecoin-project/go-filecoin/internal/pkg/testhelpers/testflags"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/types"
+	blk "github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/encoding"
+	tf "github.com/sbwtw/go-filecoin/internal/pkg/testhelpers/testflags"
+	"github.com/sbwtw/go-filecoin/internal/pkg/types"
 )
 
 func TestTipSetKey(t *testing.T) {

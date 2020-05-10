@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/clock"
+	"github.com/sbwtw/go-filecoin/internal/pkg/clock"
 )
 
 // NewInMemoryJournal returns a journal backed by an in-memory map.

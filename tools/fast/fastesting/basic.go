@@ -11,11 +11,11 @@ import (
 	"github.com/ipfs/go-ipfs-files"
 	"github.com/stretchr/testify/require"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/testhelpers"
-	"github.com/filecoin-project/go-filecoin/tools/fast"
-	"github.com/filecoin-project/go-filecoin/tools/fast/environment"
-	"github.com/filecoin-project/go-filecoin/tools/fast/series"
-	localplugin "github.com/filecoin-project/go-filecoin/tools/iptb-plugins/filecoin/local"
+	"github.com/sbwtw/go-filecoin/internal/pkg/testhelpers"
+	"github.com/sbwtw/go-filecoin/tools/fast"
+	"github.com/sbwtw/go-filecoin/tools/fast/environment"
+	"github.com/sbwtw/go-filecoin/tools/fast/series"
+	localplugin "github.com/sbwtw/go-filecoin/tools/iptb-plugins/filecoin/local"
 )
 
 // TestEnvironment provides common setup for writing tests using FAST

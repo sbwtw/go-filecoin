@@ -10,17 +10,17 @@ import (
 	"github.com/libp2p/go-libp2p-core/peer"
 	"github.com/pkg/errors"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/chain"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/chainsync"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/chainsync/fetcher"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/clock"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/consensus"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/drand"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/net/blocksub"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/net/pubsub"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/slashing"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/state"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/chain"
+	"github.com/sbwtw/go-filecoin/internal/pkg/chainsync"
+	"github.com/sbwtw/go-filecoin/internal/pkg/chainsync/fetcher"
+	"github.com/sbwtw/go-filecoin/internal/pkg/clock"
+	"github.com/sbwtw/go-filecoin/internal/pkg/consensus"
+	"github.com/sbwtw/go-filecoin/internal/pkg/drand"
+	"github.com/sbwtw/go-filecoin/internal/pkg/net/blocksub"
+	"github.com/sbwtw/go-filecoin/internal/pkg/net/pubsub"
+	"github.com/sbwtw/go-filecoin/internal/pkg/slashing"
+	"github.com/sbwtw/go-filecoin/internal/pkg/state"
 )
 
 // SyncerSubmodule enhances the node with chain syncing capabilities

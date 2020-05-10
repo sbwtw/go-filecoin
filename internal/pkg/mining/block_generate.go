@@ -13,11 +13,11 @@ import (
 	"github.com/pkg/errors"
 
 	bls "github.com/sbwtw/filecoin-ffi"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/crypto"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/drand"
-	e "github.com/filecoin-project/go-filecoin/internal/pkg/enccid"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/types"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/crypto"
+	"github.com/sbwtw/go-filecoin/internal/pkg/drand"
+	e "github.com/sbwtw/go-filecoin/internal/pkg/enccid"
+	"github.com/sbwtw/go-filecoin/internal/pkg/types"
 )
 
 // Generate returns a new block created from the messages in the pool.

@@ -12,11 +12,11 @@ import (
 	"github.com/ipfs/go-cid"
 	"github.com/minio/blake2b-simd"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/crypto"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/slashing"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/state"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/crypto"
+	"github.com/sbwtw/go-filecoin/internal/pkg/slashing"
+	"github.com/sbwtw/go-filecoin/internal/pkg/state"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm"
 )
 
 type faultChecker interface {
@@ -29,7 +29,7 @@ type faultChecker interface {
 // entirely deterministic and repeatable by other implementations.
 // Any non-deterministic error will instead trigger a panic.
 // TODO: determine a more robust mechanism for distinguishing transient runtime failures from deterministic errors
-// in VM and supporting code. https://github.com/filecoin-project/go-filecoin/issues/3844
+// in VM and supporting code. https://github.com/sbwtw/go-filecoin/issues/3844
 type Syscalls struct {
 	faultChecker faultChecker
 	verifier     ffiwrapper.Verifier

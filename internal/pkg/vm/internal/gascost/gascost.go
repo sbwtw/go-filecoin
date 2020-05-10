@@ -3,9 +3,9 @@ package gascost
 import (
 	"fmt"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/crypto"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm/gas"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm/internal/message"
+	"github.com/sbwtw/go-filecoin/internal/pkg/crypto"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm/gas"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm/internal/message"
 	"github.com/filecoin-project/specs-actors/actors/abi"
 )
 

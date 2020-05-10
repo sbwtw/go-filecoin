@@ -4,9 +4,9 @@ import (
 	"context"
 	"sync"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/mining"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/postgenerator"
-	mining_protocol "github.com/filecoin-project/go-filecoin/internal/pkg/protocol/mining"
+	"github.com/sbwtw/go-filecoin/internal/pkg/mining"
+	"github.com/sbwtw/go-filecoin/internal/pkg/postgenerator"
+	mining_protocol "github.com/sbwtw/go-filecoin/internal/pkg/protocol/mining"
 )
 
 // BlockMiningSubmodule enhances the `Node` with block mining capabilities.

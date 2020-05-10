@@ -8,8 +8,8 @@ import (
 	"github.com/stretchr/testify/require"
 
 	bls "github.com/sbwtw/filecoin-ffi"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/crypto"
-	tf "github.com/filecoin-project/go-filecoin/internal/pkg/testhelpers/testflags"
+	"github.com/sbwtw/go-filecoin/internal/pkg/crypto"
+	tf "github.com/sbwtw/go-filecoin/internal/pkg/testhelpers/testflags"
 )
 
 func TestGenerateSecpKey(t *testing.T) {

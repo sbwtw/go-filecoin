@@ -20,15 +20,15 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	. "github.com/filecoin-project/go-filecoin/internal/app/go-filecoin/connectors/retrieval_market"
-	pch "github.com/filecoin-project/go-filecoin/internal/app/go-filecoin/paymentchannel"
-	paychtest "github.com/filecoin-project/go-filecoin/internal/app/go-filecoin/paymentchannel/testing"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/encoding"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/piecemanager"
-	tf "github.com/filecoin-project/go-filecoin/internal/pkg/testhelpers/testflags"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/types"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm/state"
+	. "github.com/sbwtw/go-filecoin/internal/app/go-filecoin/connectors/retrieval_market"
+	pch "github.com/sbwtw/go-filecoin/internal/app/go-filecoin/paymentchannel"
+	paychtest "github.com/sbwtw/go-filecoin/internal/app/go-filecoin/paymentchannel/testing"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/encoding"
+	"github.com/sbwtw/go-filecoin/internal/pkg/piecemanager"
+	tf "github.com/sbwtw/go-filecoin/internal/pkg/testhelpers/testflags"
+	"github.com/sbwtw/go-filecoin/internal/pkg/types"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm/state"
 )
 
 func TestNewRetrievalProviderNodeConnector(t *testing.T) {

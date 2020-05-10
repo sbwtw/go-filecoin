@@ -10,7 +10,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	. "github.com/filecoin-project/go-filecoin/tools/migration/internal"
+	. "github.com/sbwtw/go-filecoin/tools/migration/internal"
 )
 
 func TestLoggerWritesToFile(t *testing.T) {

@@ -11,15 +11,15 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	blk "github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/constants"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/crypto"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/drand"
-	e "github.com/filecoin-project/go-filecoin/internal/pkg/enccid"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/encoding"
-	tf "github.com/filecoin-project/go-filecoin/internal/pkg/testhelpers/testflags"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/types"
-	vmaddr "github.com/filecoin-project/go-filecoin/internal/pkg/vm/address"
+	blk "github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/constants"
+	"github.com/sbwtw/go-filecoin/internal/pkg/crypto"
+	"github.com/sbwtw/go-filecoin/internal/pkg/drand"
+	e "github.com/sbwtw/go-filecoin/internal/pkg/enccid"
+	"github.com/sbwtw/go-filecoin/internal/pkg/encoding"
+	tf "github.com/sbwtw/go-filecoin/internal/pkg/testhelpers/testflags"
+	"github.com/sbwtw/go-filecoin/internal/pkg/types"
+	vmaddr "github.com/sbwtw/go-filecoin/internal/pkg/vm/address"
 )
 
 func TestTriangleEncoding(t *testing.T) {
@@ -37,7 +37,7 @@ func TestTriangleEncoding(t *testing.T) {
 	// the block by cid which yeilds a json-encoded ipld node (first half of
 	// the second case). It json decodes this ipld node and then decodes the node
 	// into a block (second half of the second case). I don't claim this is ideal,
-	// see: https://github.com/filecoin-project/go-filecoin/issues/599
+	// see: https://github.com/sbwtw/go-filecoin/issues/599
 
 	newAddress := vmaddr.NewForTestGetter()
 

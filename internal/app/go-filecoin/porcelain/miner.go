@@ -15,12 +15,12 @@ import (
 	"github.com/libp2p/go-libp2p-core/peer"
 	"github.com/pkg/errors"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/encoding"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/state"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/types"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm/gas"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/encoding"
+	"github.com/sbwtw/go-filecoin/internal/pkg/state"
+	"github.com/sbwtw/go-filecoin/internal/pkg/types"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm/gas"
 )
 
 // mcAPI is the subset of the plumbing.API that MinerCreate uses.
@@ -46,7 +46,7 @@ type MinerStateView interface {
 // MinerCreate creates a new miner actor for the given account and returns its address.
 // It will wait for the the actor to appear on-chain and add set the address to mining.minerAddress in the config.
 // TODO: add ability to pass in a KeyInfo to store for signing blocks.
-//       See https://github.com/filecoin-project/go-filecoin/issues/1843
+//       See https://github.com/sbwtw/go-filecoin/issues/1843
 func MinerCreate(
 	ctx context.Context,
 	plumbing mcAPI,

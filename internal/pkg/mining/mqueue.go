@@ -8,7 +8,7 @@ import (
 	"github.com/filecoin-project/go-address"
 	specsbig "github.com/filecoin-project/specs-actors/actors/abi/big"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/types"
+	"github.com/sbwtw/go-filecoin/internal/pkg/types"
 )
 
 // MessageQueue is a priority queue of messages from different actors. Messages are ordered

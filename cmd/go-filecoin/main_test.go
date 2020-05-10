@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	tf "github.com/filecoin-project/go-filecoin/internal/pkg/testhelpers/testflags"
+	tf "github.com/sbwtw/go-filecoin/internal/pkg/testhelpers/testflags"
 	cmds "github.com/ipfs/go-ipfs-cmds"
 	"github.com/stretchr/testify/assert"
 )

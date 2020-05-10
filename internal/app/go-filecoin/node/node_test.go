@@ -11,13 +11,13 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/filecoin-project/go-filecoin/internal/app/go-filecoin/node"
-	"github.com/filecoin-project/go-filecoin/internal/app/go-filecoin/node/test"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/config"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/proofs"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/repo"
-	tf "github.com/filecoin-project/go-filecoin/internal/pkg/testhelpers/testflags"
-	"github.com/filecoin-project/go-filecoin/tools/gengen/util"
+	"github.com/sbwtw/go-filecoin/internal/app/go-filecoin/node"
+	"github.com/sbwtw/go-filecoin/internal/app/go-filecoin/node/test"
+	"github.com/sbwtw/go-filecoin/internal/pkg/config"
+	"github.com/sbwtw/go-filecoin/internal/pkg/proofs"
+	"github.com/sbwtw/go-filecoin/internal/pkg/repo"
+	tf "github.com/sbwtw/go-filecoin/internal/pkg/testhelpers/testflags"
+	"github.com/sbwtw/go-filecoin/tools/gengen/util"
 )
 
 func TestNodeConstruct(t *testing.T) {

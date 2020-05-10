@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/filecoin-project/go-filecoin/cmd/go-filecoin"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/crypto"
-	"github.com/filecoin-project/go-filecoin/tools/gengen/util"
+	"github.com/sbwtw/go-filecoin/cmd/go-filecoin"
+	"github.com/sbwtw/go-filecoin/internal/pkg/crypto"
+	"github.com/sbwtw/go-filecoin/tools/gengen/util"
 )
 
 func writeKey(ki *crypto.KeyInfo, name string, jsonout bool) error {

@@ -1,7 +1,7 @@
 package commands
 
 import (
-	"github.com/filecoin-project/go-filecoin/internal/pkg/drand"
+	"github.com/sbwtw/go-filecoin/internal/pkg/drand"
 	cmdkit "github.com/ipfs/go-ipfs-cmdkit"
 	cmds "github.com/ipfs/go-ipfs-cmds"
 )

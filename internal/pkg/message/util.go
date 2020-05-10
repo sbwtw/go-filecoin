@@ -1,8 +1,8 @@
 package message
 
 import (
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/chain"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/chain"
 )
 
 // chainProvider provides chain access for updating the message pool in response to new heads.

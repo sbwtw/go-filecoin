@@ -1,6 +1,6 @@
 package block
 
-import "github.com/filecoin-project/go-filecoin/internal/pkg/types"
+import "github.com/sbwtw/go-filecoin/internal/pkg/types"
 
 // FullBlock carries a block header and the message and receipt collections
 // referenced from the header.

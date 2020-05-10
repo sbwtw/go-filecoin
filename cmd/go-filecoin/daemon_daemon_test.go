@@ -9,8 +9,8 @@ import (
 
 	manet "github.com/multiformats/go-multiaddr-net"
 
-	th "github.com/filecoin-project/go-filecoin/internal/pkg/testhelpers"
-	tf "github.com/filecoin-project/go-filecoin/internal/pkg/testhelpers/testflags"
+	th "github.com/sbwtw/go-filecoin/internal/pkg/testhelpers"
+	tf "github.com/sbwtw/go-filecoin/internal/pkg/testhelpers/testflags"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

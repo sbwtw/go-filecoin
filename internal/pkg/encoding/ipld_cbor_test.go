@@ -7,7 +7,7 @@ import (
 
 	"gotest.tools/assert"
 
-	tf "github.com/filecoin-project/go-filecoin/internal/pkg/testhelpers/testflags"
+	tf "github.com/sbwtw/go-filecoin/internal/pkg/testhelpers/testflags"
 )
 
 func TestIpldCborEncodingEncodeStruct(t *testing.T) {

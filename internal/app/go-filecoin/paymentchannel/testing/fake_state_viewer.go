@@ -7,7 +7,7 @@ import (
 	"github.com/filecoin-project/go-address"
 	"github.com/filecoin-project/go-fil-markets/shared"
 
-	"github.com/filecoin-project/go-filecoin/internal/app/go-filecoin/paymentchannel"
+	"github.com/sbwtw/go-filecoin/internal/app/go-filecoin/paymentchannel"
 )
 
 type FakeStateViewer struct {

@@ -15,9 +15,9 @@ import (
 
 	iptb "github.com/ipfs/iptb/testbed"
 
-	th "github.com/filecoin-project/go-filecoin/internal/pkg/testhelpers"
+	th "github.com/sbwtw/go-filecoin/internal/pkg/testhelpers"
 
-	localplugin "github.com/filecoin-project/go-filecoin/tools/iptb-plugins/filecoin/local"
+	localplugin "github.com/sbwtw/go-filecoin/tools/iptb-plugins/filecoin/local"
 )
 
 var log = logging.Logger("iptbtester")

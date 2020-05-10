@@ -5,7 +5,7 @@ import (
 
 	"github.com/filecoin-project/specs-actors/actors/abi"
 
-	"github.com/filecoin-project/go-filecoin/tools/fast"
+	"github.com/sbwtw/go-filecoin/tools/fast"
 )
 
 // WaitForBlockHeight will inspect the chain head and wait till the height is equal to or

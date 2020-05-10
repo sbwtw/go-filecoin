@@ -9,7 +9,7 @@ import (
 	"github.com/filecoin-project/specs-actors/actors/builtin"
 	cid "github.com/ipfs/go-cid"
 
-	commands "github.com/filecoin-project/go-filecoin/cmd/go-filecoin"
+	commands "github.com/sbwtw/go-filecoin/cmd/go-filecoin"
 )
 
 // MessageSend runs the `message send` command against the filecoin process.

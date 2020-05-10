@@ -25,10 +25,10 @@ import (
 	manet "github.com/multiformats/go-multiaddr-net"
 	"github.com/pkg/errors"
 
-	"github.com/filecoin-project/go-filecoin/build/project"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/config"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm"
+	"github.com/sbwtw/go-filecoin/build/project"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/config"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

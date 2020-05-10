@@ -7,11 +7,11 @@ import (
 	"github.com/ipfs/go-cid"
 	"github.com/stretchr/testify/assert"
 
-	. "github.com/filecoin-project/go-filecoin/internal/pkg/vm/actor"
+	. "github.com/sbwtw/go-filecoin/internal/pkg/vm/actor"
 	"github.com/filecoin-project/specs-actors/actors/abi"
 	"github.com/filecoin-project/specs-actors/actors/builtin"
 
-	tf "github.com/filecoin-project/go-filecoin/internal/pkg/testhelpers/testflags"
+	tf "github.com/sbwtw/go-filecoin/internal/pkg/testhelpers/testflags"
 )
 
 func TestActorFormat(t *testing.T) {

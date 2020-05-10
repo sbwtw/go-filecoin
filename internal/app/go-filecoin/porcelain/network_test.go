@@ -8,9 +8,9 @@ import (
 	"github.com/libp2p/go-libp2p-core/peer"
 	"github.com/stretchr/testify/assert"
 
-	. "github.com/filecoin-project/go-filecoin/internal/app/go-filecoin/porcelain"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/net"
-	th "github.com/filecoin-project/go-filecoin/internal/pkg/testhelpers"
+	. "github.com/sbwtw/go-filecoin/internal/app/go-filecoin/porcelain"
+	"github.com/sbwtw/go-filecoin/internal/pkg/net"
+	th "github.com/sbwtw/go-filecoin/internal/pkg/testhelpers"
 	"github.com/libp2p/go-libp2p/p2p/protocol/ping"
 )
 

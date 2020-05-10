@@ -9,9 +9,9 @@ import (
 	"github.com/filecoin-project/specs-actors/actors/runtime/exitcode"
 	"github.com/ipfs/go-cid"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm/internal/gascost"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm/internal/runtime"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm/internal/storage"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm/internal/gascost"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm/internal/runtime"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm/internal/storage"
 )
 
 type vmStorage interface {

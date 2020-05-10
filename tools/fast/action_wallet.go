@@ -7,9 +7,9 @@ import (
 	"github.com/filecoin-project/go-address"
 	files "github.com/ipfs/go-ipfs-files"
 
-	commands "github.com/filecoin-project/go-filecoin/cmd/go-filecoin"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/crypto"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/types"
+	commands "github.com/sbwtw/go-filecoin/cmd/go-filecoin"
+	"github.com/sbwtw/go-filecoin/internal/pkg/crypto"
+	"github.com/sbwtw/go-filecoin/internal/pkg/types"
 )
 
 // WalletBalance run the wallet balance command against the filecoin process.

@@ -14,16 +14,16 @@ import (
 	"github.com/pkg/errors"
 	"go.opencensus.io/trace"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/chain"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/clock"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/crypto"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/drand"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/metrics/tracing"
-	appstate "github.com/filecoin-project/go-filecoin/internal/pkg/state"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/types"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm/state"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/chain"
+	"github.com/sbwtw/go-filecoin/internal/pkg/clock"
+	"github.com/sbwtw/go-filecoin/internal/pkg/crypto"
+	"github.com/sbwtw/go-filecoin/internal/pkg/drand"
+	"github.com/sbwtw/go-filecoin/internal/pkg/metrics/tracing"
+	appstate "github.com/sbwtw/go-filecoin/internal/pkg/state"
+	"github.com/sbwtw/go-filecoin/internal/pkg/types"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm/state"
 )
 
 var (
@@ -278,7 +278,7 @@ func (c *Expected) validateMining(ctx context.Context,
 		}
 		// TODO this is not using nominal power, which must take into account undeclared faults
 		// TODO the nominal power must be tested against the minimum (power.minerNominalPowerMeetsConsensusMinimum)
-		// See https://github.com/filecoin-project/go-filecoin/issues/3958
+		// See https://github.com/sbwtw/go-filecoin/issues/3958
 		minerPower, err := electionPowerTable.MinerClaimedPower(ctx, blk.Miner)
 		if err != nil {
 			return errors.Wrap(err, "failed to read miner claim from power table")

@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/encoding"
+	"github.com/sbwtw/go-filecoin/internal/pkg/encoding"
 )
 
 // MaxMessageSize is the maximum message size to read

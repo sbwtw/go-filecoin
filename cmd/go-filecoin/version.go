@@ -4,7 +4,7 @@ import (
 	cmdkit "github.com/ipfs/go-ipfs-cmdkit"
 	cmds "github.com/ipfs/go-ipfs-cmds"
 
-	"github.com/filecoin-project/go-filecoin/build/flags"
+	"github.com/sbwtw/go-filecoin/build/flags"
 )
 
 type versionInfo struct {

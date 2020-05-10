@@ -10,7 +10,7 @@ import (
 
 	cbg "github.com/whyrusleeping/cbor-gen"
 
-	tf "github.com/filecoin-project/go-filecoin/internal/pkg/testhelpers/testflags"
+	tf "github.com/sbwtw/go-filecoin/internal/pkg/testhelpers/testflags"
 )
 
 func TestWhyCborEncodingOutput(t *testing.T) {

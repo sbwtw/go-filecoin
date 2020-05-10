@@ -9,15 +9,15 @@ import (
 	"github.com/libp2p/go-libp2p-core/peer"
 	"github.com/stretchr/testify/require"
 
-	"github.com/filecoin-project/go-filecoin/internal/app/go-filecoin/node"
-	"github.com/filecoin-project/go-filecoin/internal/app/go-filecoin/node/test"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/protocol/retrieval"
-	tf "github.com/filecoin-project/go-filecoin/internal/pkg/testhelpers/testflags"
+	"github.com/sbwtw/go-filecoin/internal/app/go-filecoin/node"
+	"github.com/sbwtw/go-filecoin/internal/app/go-filecoin/node/test"
+	"github.com/sbwtw/go-filecoin/internal/pkg/protocol/retrieval"
+	tf "github.com/sbwtw/go-filecoin/internal/pkg/testhelpers/testflags"
 )
 
 // NOTE: The test TestRetrievalProtocolHappyPath has been deleted due to flakiness.
 // Coverage of this feature has been relegated to the functional-tests/retrieval script.
-// See https://github.com/filecoin-project/go-filecoin/pull/1643
+// See https://github.com/sbwtw/go-filecoin/pull/1643
 
 func TestRetrievalProtocolPieceNotFound(t *testing.T) {
 	t.Skip("Skip pending retrieval market shared component")

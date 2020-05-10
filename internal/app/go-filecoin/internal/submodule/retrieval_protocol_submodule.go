@@ -12,9 +12,9 @@ import (
 	blockstore "github.com/ipfs/go-ipfs-blockstore"
 	"github.com/libp2p/go-libp2p-core/host"
 
-	retmkt "github.com/filecoin-project/go-filecoin/internal/app/go-filecoin/connectors/retrieval_market"
-	"github.com/filecoin-project/go-filecoin/internal/app/go-filecoin/plumbing/cst"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/piecemanager"
+	retmkt "github.com/sbwtw/go-filecoin/internal/app/go-filecoin/connectors/retrieval_market"
+	"github.com/sbwtw/go-filecoin/internal/app/go-filecoin/plumbing/cst"
+	"github.com/sbwtw/go-filecoin/internal/pkg/piecemanager"
 )
 
 // RetrievalProtocolSubmodule enhances the node with retrieval protocol

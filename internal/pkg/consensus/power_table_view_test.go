@@ -12,16 +12,16 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/cborutil"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/consensus"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/constants"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/crypto"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/repo"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/state"
-	tf "github.com/filecoin-project/go-filecoin/internal/pkg/testhelpers/testflags"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/types"
-	gengen "github.com/filecoin-project/go-filecoin/tools/gengen/util"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/cborutil"
+	"github.com/sbwtw/go-filecoin/internal/pkg/consensus"
+	"github.com/sbwtw/go-filecoin/internal/pkg/constants"
+	"github.com/sbwtw/go-filecoin/internal/pkg/crypto"
+	"github.com/sbwtw/go-filecoin/internal/pkg/repo"
+	"github.com/sbwtw/go-filecoin/internal/pkg/state"
+	tf "github.com/sbwtw/go-filecoin/internal/pkg/testhelpers/testflags"
+	"github.com/sbwtw/go-filecoin/internal/pkg/types"
+	gengen "github.com/sbwtw/go-filecoin/tools/gengen/util"
 )
 
 func TestTotal(t *testing.T) {
@@ -39,7 +39,7 @@ func TestTotal(t *testing.T) {
 	require.NoError(t, err)
 
 	// TODO: test that the QA power is used when it differs from raw byte power after gengen computes it properly
-	// https://github.com/filecoin-project/go-filecoin/issues/4011
+	// https://github.com/sbwtw/go-filecoin/issues/4011
 	expected := big.NewIntUnsigned(uint64(constants.DevSectorSize) * numCommittedSectors * uint64(numMiners))
 	assert.True(t, expected.Equals(networkPower))
 }

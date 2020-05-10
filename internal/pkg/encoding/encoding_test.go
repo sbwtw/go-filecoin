@@ -3,7 +3,7 @@ package encoding
 import (
 	"testing"
 
-	tf "github.com/filecoin-project/go-filecoin/internal/pkg/testhelpers/testflags"
+	tf "github.com/sbwtw/go-filecoin/internal/pkg/testhelpers/testflags"
 	"gotest.tools/assert"
 )
 

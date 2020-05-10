@@ -10,10 +10,10 @@ import (
 	paychActor "github.com/filecoin-project/specs-actors/actors/builtin/paych"
 	"github.com/ipfs/go-cid"
 
-	"github.com/filecoin-project/go-filecoin/internal/app/go-filecoin/paymentchannel"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/crypto"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm/actor"
+	"github.com/sbwtw/go-filecoin/internal/app/go-filecoin/paymentchannel"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/crypto"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm/actor"
 )
 
 // ChainReaderAPI is the subset of the Wallet interface needed by the retrieval client node

@@ -3,8 +3,8 @@ package node
 import (
 	"context"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/net/pubsub"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/types"
+	"github.com/sbwtw/go-filecoin/internal/pkg/net/pubsub"
+	"github.com/sbwtw/go-filecoin/internal/pkg/types"
 )
 
 func (node *Node) processMessage(ctx context.Context, pubSubMsg pubsub.Message) (err error) {

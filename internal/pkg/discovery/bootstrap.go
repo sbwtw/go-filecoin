@@ -13,7 +13,7 @@ import (
 	"github.com/libp2p/go-libp2p-core/routing"
 	dht "github.com/libp2p/go-libp2p-kad-dht"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/util/moresync"
+	"github.com/sbwtw/go-filecoin/internal/pkg/util/moresync"
 )
 
 var logBootstrap = logging.Logger("net.bootstrap")

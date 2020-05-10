@@ -13,8 +13,8 @@ import (
 	xerrors "github.com/pkg/errors"
 	"github.com/stretchr/testify/require"
 
-	"github.com/filecoin-project/go-filecoin/internal/app/go-filecoin/paymentchannel"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/types"
+	"github.com/sbwtw/go-filecoin/internal/app/go-filecoin/paymentchannel"
+	"github.com/sbwtw/go-filecoin/internal/pkg/types"
 )
 
 // RetrievalMarketClientFakeAPI is a test API that satisfies all needed interface methods

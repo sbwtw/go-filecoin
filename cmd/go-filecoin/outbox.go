@@ -5,7 +5,7 @@ import (
 	cmdkit "github.com/ipfs/go-ipfs-cmdkit"
 	cmds "github.com/ipfs/go-ipfs-cmds"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/message"
+	"github.com/sbwtw/go-filecoin/internal/pkg/message"
 )
 
 var outboxCmd = &cmds.Command{

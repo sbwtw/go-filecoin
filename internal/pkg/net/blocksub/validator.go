@@ -7,9 +7,9 @@ import (
 	"github.com/libp2p/go-libp2p-core/peer"
 	"github.com/libp2p/go-libp2p-pubsub"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/consensus"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/encoding"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/metrics"
+	"github.com/sbwtw/go-filecoin/internal/pkg/consensus"
+	"github.com/sbwtw/go-filecoin/internal/pkg/encoding"
+	"github.com/sbwtw/go-filecoin/internal/pkg/metrics"
 )
 
 var blockTopicLogger = log.Logger("net/block_validator")
@@ -43,7 +43,7 @@ func NewBlockTopicValidator(bv consensus.BlockSyntaxValidator, opts ...pubsub.Va
 			// produce the AMT roots referenced in the block header.
 			// At present, those lists are ignored by chain validation anyway.
 			// Such a check happens later in block semantic validation, but it would probably be a good idea to do
-			// it here too. https://github.com/filecoin-project/go-filecoin/issues/3903
+			// it here too. https://github.com/sbwtw/go-filecoin/issues/3903
 			return true
 		},
 	}

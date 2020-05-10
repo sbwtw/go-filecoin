@@ -9,12 +9,12 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/clock"
-	e "github.com/filecoin-project/go-filecoin/internal/pkg/enccid"
-	. "github.com/filecoin-project/go-filecoin/internal/pkg/mining"
-	tf "github.com/filecoin-project/go-filecoin/internal/pkg/testhelpers/testflags"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/types"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/clock"
+	e "github.com/sbwtw/go-filecoin/internal/pkg/enccid"
+	. "github.com/sbwtw/go-filecoin/internal/pkg/mining"
+	tf "github.com/sbwtw/go-filecoin/internal/pkg/testhelpers/testflags"
+	"github.com/sbwtw/go-filecoin/internal/pkg/types"
 )
 
 // Mining loop unit tests

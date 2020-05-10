@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# this script updates go-filecoin status badges in https://github.com/filecoin-project/go-filecoin-badges
+# this script updates go-filecoin status badges in https://github.com/sbwtw/go-filecoin-badges
 # with latest binary release version
 set -e
 FILENAME="${1}"
@@ -9,7 +9,7 @@ if [[ -z "${FILENAME}" ]]; then
 fi
 git config --global user.email dev-helper@filecoin.io
 git config --global user.name filecoin-helper
-git clone "https://${GITHUB_TOKEN}@github.com/filecoin-project/go-filecoin-badges.git"
+git clone "https://${GITHUB_TOKEN}@github.com/sbwtw/go-filecoin-badges.git"
 cd go-filecoin-badges
 jq --arg FILECOIN_BINARY_VERSION "${FILECOIN_BINARY_VERSION}" -r '.message = $FILECOIN_BINARY_VERSION' < "${FILENAME}" | tee "${FILENAME}.new"
 if [[ ! -s ${FILENAME}.new ]]; then
@@ -19,4 +19,4 @@ fi
 mv "${FILENAME}.new" "${FILENAME}"
 git add "${FILENAME}"
 git commit -m "badge update bot: update ${FILENAME} to ${FILECOIN_BINARY_VERSION}"
-git push "https://${GITHUB_TOKEN}@github.com/filecoin-project/go-filecoin-badges.git"
+git push "https://${GITHUB_TOKEN}@github.com/sbwtw/go-filecoin-badges.git"

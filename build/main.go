@@ -16,8 +16,8 @@ import (
 	pf "github.com/sbwtw/go-paramfetch"
 	"github.com/pkg/errors"
 
-	"github.com/filecoin-project/go-filecoin/build/internal/helpers"
-	"github.com/filecoin-project/go-filecoin/build/internal/version"
+	"github.com/sbwtw/go-filecoin/build/internal/helpers"
+	"github.com/sbwtw/go-filecoin/build/internal/version"
 )
 
 var lineBreak = "\n"

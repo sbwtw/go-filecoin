@@ -1,10 +1,10 @@
 package version_test
 
 import (
-	"github.com/filecoin-project/go-filecoin/build/internal/version"
+	"github.com/sbwtw/go-filecoin/build/internal/version"
 	"testing"
 
-	tf "github.com/filecoin-project/go-filecoin/internal/pkg/testhelpers/testflags"
+	tf "github.com/sbwtw/go-filecoin/internal/pkg/testhelpers/testflags"
 	"github.com/stretchr/testify/assert"
 )
 

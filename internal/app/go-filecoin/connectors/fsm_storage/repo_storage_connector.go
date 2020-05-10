@@ -5,8 +5,8 @@ import (
 
 	"github.com/filecoin-project/sector-storage/stores"
 
-	"github.com/filecoin-project/go-filecoin/internal/app/go-filecoin/paths"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/repo"
+	"github.com/sbwtw/go-filecoin/internal/app/go-filecoin/paths"
+	"github.com/sbwtw/go-filecoin/internal/pkg/repo"
 )
 
 type RepoStorageConnector struct {

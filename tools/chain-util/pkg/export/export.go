@@ -15,10 +15,10 @@ import (
 	dag "github.com/ipfs/go-merkledag"
 	errors "github.com/pkg/errors"
 
-	plumbingDag "github.com/filecoin-project/go-filecoin/internal/app/go-filecoin/plumbing/dag"
-	block "github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	chain "github.com/filecoin-project/go-filecoin/internal/pkg/chain"
-	encoding "github.com/filecoin-project/go-filecoin/internal/pkg/encoding"
+	plumbingDag "github.com/sbwtw/go-filecoin/internal/app/go-filecoin/plumbing/dag"
+	block "github.com/sbwtw/go-filecoin/internal/pkg/block"
+	chain "github.com/sbwtw/go-filecoin/internal/pkg/chain"
+	encoding "github.com/sbwtw/go-filecoin/internal/pkg/encoding"
 )
 
 var log = logging.Logger("chain-util/export")

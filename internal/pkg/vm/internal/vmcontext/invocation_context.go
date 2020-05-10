@@ -16,11 +16,11 @@ import (
 	"github.com/filecoin-project/specs-actors/actors/runtime/exitcode"
 	"github.com/ipfs/go-cid"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/crypto"
-	e "github.com/filecoin-project/go-filecoin/internal/pkg/enccid"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/encoding"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm/actor"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm/internal/runtime"
+	"github.com/sbwtw/go-filecoin/internal/pkg/crypto"
+	e "github.com/sbwtw/go-filecoin/internal/pkg/enccid"
+	"github.com/sbwtw/go-filecoin/internal/pkg/encoding"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm/actor"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm/internal/runtime"
 )
 
 // Context for a top-level invocation sequence.
@@ -560,7 +560,7 @@ func (ctx *invocationContext) TotalFilCircSupply() abi.TokenAmount {
 		panic(fmt.Sprintf("failed to get storage marketActor actor for computing total supply: %s", err))
 	}
 
-	// TODO: remove this, https://github.com/filecoin-project/go-filecoin/issues/4017
+	// TODO: remove this, https://github.com/sbwtw/go-filecoin/issues/4017
 	powerActor, found, err := ctx.rt.state.GetActor(ctx.rt.context, builtin.StoragePowerActorAddr)
 	if !found || err != nil {
 		panic(fmt.Sprintf("failed to get storage powerActor actor for computing total supply: %s", err))
@@ -570,7 +570,7 @@ func (ctx *invocationContext) TotalFilCircSupply() abi.TokenAmount {
 	// but including it here is brittle. Instead, this should inspect the reward actor's state which records
 	// exactly how much has actually been distributed in block rewards to this point, robust to various
 	// network initial conditions.
-	// https://github.com/filecoin-project/go-filecoin/issues/4017
+	// https://github.com/sbwtw/go-filecoin/issues/4017
 	total := big.NewInt(2e9)
 	total = big.Sub(total, rewardActor.Balance)
 	total = big.Sub(total, burntActor.Balance)

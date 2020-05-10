@@ -11,22 +11,22 @@ import (
 	"github.com/filecoin-project/go-address"
 	cid "github.com/ipfs/go-cid"
 
-	"github.com/filecoin-project/go-filecoin/build/project"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/crypto"
-	gen "github.com/filecoin-project/go-filecoin/tools/gengen/util"
+	"github.com/sbwtw/go-filecoin/build/project"
+	"github.com/sbwtw/go-filecoin/internal/pkg/crypto"
+	gen "github.com/sbwtw/go-filecoin/tools/gengen/util"
 )
 
 // The file used to build these addresses can be found in:
-// $GOPATH/src/github.com/filecoin-project/go-filecoin/fixtures/setup.json
+// $GOPATH/src/github.com/sbwtw/go-filecoin/fixtures/setup.json
 //
 // If said file is modified these addresses will need to change as well
 // rebuild using
 // TODO: move to build script
-// https://github.com/filecoin-project/go-filecoin/issues/921
+// https://github.com/sbwtw/go-filecoin/issues/921
 // cat ./fixtures/setup.json | ./tools/gengen/gengen --json --keypath fixtures > fixtures/genesis.car 2> fixtures/gen.json
 //
 // The fake cids used for commX in setup.json are generated using this tool:
-// $GOPATH/src/github.com/filecoin-project/go-filecoin/tools/gengen/gencfg
+// $GOPATH/src/github.com/sbwtw/go-filecoin/tools/gengen/gencfg
 
 // TestAddresses is a list of pregenerated addresses.
 var TestAddresses []address.Address

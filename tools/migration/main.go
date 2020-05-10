@@ -8,7 +8,7 @@ import (
 
 	"github.com/mitchellh/go-homedir"
 
-	"github.com/filecoin-project/go-filecoin/tools/migration/internal"
+	"github.com/sbwtw/go-filecoin/tools/migration/internal"
 )
 
 const defaultLogFilePath = "~/.filecoin-migration-logs"

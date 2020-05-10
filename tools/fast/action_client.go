@@ -12,7 +12,7 @@ import (
 	"github.com/ipfs/go-cid"
 	files "github.com/ipfs/go-ipfs-files"
 
-	commands "github.com/filecoin-project/go-filecoin/cmd/go-filecoin"
+	commands "github.com/sbwtw/go-filecoin/cmd/go-filecoin"
 )
 
 // ClientCat runs the client cat command against the filecoin process.

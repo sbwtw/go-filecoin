@@ -15,7 +15,7 @@ import (
 	blockstore "github.com/ipfs/go-ipfs-blockstore"
 	xerrors "github.com/pkg/errors"
 
-	"github.com/filecoin-project/go-filecoin/internal/app/go-filecoin/connectors"
+	"github.com/sbwtw/go-filecoin/internal/app/go-filecoin/connectors"
 )
 
 // MaxInt is the max value of an Int

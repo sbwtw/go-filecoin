@@ -29,7 +29,7 @@ jobs:
   build_macos:
     macos:
       xcode: "10.0.0"
-    working_directory: ~/go/src/github.com/filecoin-project/go-filecoin
+    working_directory: ~/go/src/github.com/sbwtw/go-filecoin
     resource_class: large
     steps:
       - run:
@@ -45,7 +45,7 @@ jobs:
       - update_submodules
       - generate_rust_submodules_checksums
       - restore_cache:
-          key: v9-go-deps-{{ arch }}-{{ checksum  "~/go/src/github.com/filecoin-project/go-filecoin/build/main.go" }}-{{ checksum "~/go/src/github.com/filecoin-project/go-filecoin/go.mod" }}-{{ checksum "/tmp/filecoin-ffi-checksum.txt" }}
+          key: v9-go-deps-{{ arch }}-{{ checksum  "~/go/src/github.com/sbwtw/go-filecoin/build/main.go" }}-{{ checksum "~/go/src/github.com/sbwtw/go-filecoin/go.mod" }}-{{ checksum "/tmp/filecoin-ffi-checksum.txt" }}
       # The second checkout ensures we have the most recent code since the
       # restore_cache step above can override the go-filecoin code with cached code
       - git_fetch_all_tags
@@ -84,7 +84,7 @@ jobs:
           paths:
             - "~/filecoin-proof-parameters/"
       - save_cache:
-          key: v9-go-deps-{{ arch }}-{{ checksum  "~/go/src/github.com/filecoin-project/go-filecoin/build/main.go" }}-{{ checksum "~/go/src/github.com/filecoin-project/go-filecoin/go.mod" }}-{{ checksum "/tmp/filecoin-ffi-checksum.txt" }}
+          key: v9-go-deps-{{ arch }}-{{ checksum  "~/go/src/github.com/sbwtw/go-filecoin/build/main.go" }}-{{ checksum "~/go/src/github.com/sbwtw/go-filecoin/go.mod" }}-{{ checksum "/tmp/filecoin-ffi-checksum.txt" }}
           paths:
             - "~/go/pkg"
             - "~/go/src/gx"
@@ -108,7 +108,7 @@ jobs:
           name: Create macos bundle
           command: ./scripts/build-bundle.sh
       - store_artifacts:
-          path: "~/go/src/github.com/filecoin-project/go-filecoin/bundle/"
+          path: "~/go/src/github.com/sbwtw/go-filecoin/bundle/"
           destination: bundle
       - store_test_results:
           path: test-results
@@ -120,7 +120,7 @@ jobs:
   deps_linux:
     docker:
       - image: circleci/golang:1.13.1-stretch
-    working_directory: /go/src/github.com/filecoin-project/go-filecoin
+    working_directory: /go/src/github.com/sbwtw/go-filecoin
     resource_class: xlarge
     steps:
       - linux_configure
@@ -180,7 +180,7 @@ jobs:
   build_linux:
     docker:
       - image: circleci/golang:1.13.1-stretch
-    working_directory: /go/src/github.com/filecoin-project/go-filecoin
+    working_directory: /go/src/github.com/sbwtw/go-filecoin
     resource_class: xlarge
     parameters:
       <<: *nightly_param
@@ -218,7 +218,7 @@ jobs:
           name: Create linux bundle
           command: ./scripts/build-bundle.sh
       - store_artifacts:
-          path: "/go/src/github.com/filecoin-project/go-filecoin/bundle/"
+          path: "/go/src/github.com/sbwtw/go-filecoin/bundle/"
           destination: bundle
       - when:
           condition: << parameters.nightly >>
@@ -237,7 +237,7 @@ jobs:
     docker:
       - image: circleci/golang:1.13.1-stretch
     parallelism: 2 # Check .codecov.yml "after_n_builds" if changing this
-    working_directory: /go/src/github.com/filecoin-project/go-filecoin
+    working_directory: /go/src/github.com/sbwtw/go-filecoin
     resource_class: large
     steps:
       - linux_configure
@@ -269,7 +269,7 @@ jobs:
     docker:
       - image: circleci/golang:1.13.1-stretch
     parallelism: 2 # Check .codecov.yml "after_n_builds" if changing this
-    working_directory: /go/src/github.com/filecoin-project/go-filecoin
+    working_directory: /go/src/github.com/sbwtw/go-filecoin
     resource_class: xlarge
     steps:
       - linux_configure
@@ -303,7 +303,7 @@ jobs:
     docker:
       - image: circleci/golang:1.13.1-stretch
     parallelism: 2
-    working_directory: /go/src/github.com/filecoin-project/go-filecoin
+    working_directory: /go/src/github.com/sbwtw/go-filecoin
     resource_class: xlarge
     parameters:
       <<: *sector_builder_tests_param
@@ -480,7 +480,7 @@ jobs:
             git config user.email dev-helper@filecoin.io
             git config user.name filecoin-helper
             git tag -f -a ${FILECOIN_BINARY_VERSION} -m "$(date -u '+%Y-%m-%dT%H:%M:%S%z')"
-            git push -f https://${GITHUB_TOKEN}@github.com/filecoin-project/go-filecoin.git ${FILECOIN_BINARY_VERSION}
+            git push -f https://${GITHUB_TOKEN}@github.com/sbwtw/go-filecoin.git ${FILECOIN_BINARY_VERSION}
       - trigger_infra_build:
           job: deploy_nightly_devnet
           branch: filecoin-nightly
@@ -821,7 +821,7 @@ commands:
           command: |
             sudo apt-get install -y curl
             # FILECOIN_BINARY_VERSION must be set in BASH_ENV of job calling this command
-            curl -d build_parameters[FILECOIN_BINARY_VERSION]=${FILECOIN_BINARY_VERSION} -d build_parameters[CIRCLE_JOB]=<< parameters.job >> https://circleci.com/api/v1.1/project/github/filecoin-project/go-filecoin-infra/tree/<< parameters.branch >>?circle-token=$CIRCLE_API_TOKEN
+            curl -d build_parameters[FILECOIN_BINARY_VERSION]=${FILECOIN_BINARY_VERSION} -d build_parameters[CIRCLE_JOB]=<< parameters.job >> https://circleci.com/api/v1.1/project/github/sbwtw/go-filecoin-infra/tree/<< parameters.branch >>?circle-token=$CIRCLE_API_TOKEN
   update_badge:
     parameters:
       filename:

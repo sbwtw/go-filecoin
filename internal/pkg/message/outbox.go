@@ -9,21 +9,21 @@ import (
 	"github.com/ipfs/go-cid"
 	"github.com/pkg/errors"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/encoding"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/journal"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/metrics"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/types"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm/actor"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm/gas"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/encoding"
+	"github.com/sbwtw/go-filecoin/internal/pkg/journal"
+	"github.com/sbwtw/go-filecoin/internal/pkg/metrics"
+	"github.com/sbwtw/go-filecoin/internal/pkg/types"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm/actor"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm/gas"
 )
 
 // Outbox validates and marshals messages for sending and maintains the outbound message queue.
 // The code arrangement here is not quite right. We probably want to factor out the bits that
 // build and sign a message from those that add to the local queue/pool and broadcast it.
 // See discussion in
-// https://github.com/filecoin-project/go-filecoin/pull/3178#discussion_r311593312
-// and https://github.com/filecoin-project/go-filecoin/issues/3052#issuecomment-513643661
+// https://github.com/sbwtw/go-filecoin/pull/3178#discussion_r311593312
+// and https://github.com/sbwtw/go-filecoin/issues/3052#issuecomment-513643661
 type Outbox struct {
 	// Signs messages
 	signer types.Signer

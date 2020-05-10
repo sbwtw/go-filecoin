@@ -8,11 +8,11 @@ import (
 	cbor "github.com/ipfs/go-ipld-cbor"
 	"github.com/stretchr/testify/require"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/cborutil"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/chain"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/genesis"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/repo"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/wallet"
+	"github.com/sbwtw/go-filecoin/internal/pkg/cborutil"
+	"github.com/sbwtw/go-filecoin/internal/pkg/chain"
+	"github.com/sbwtw/go-filecoin/internal/pkg/genesis"
+	"github.com/sbwtw/go-filecoin/internal/pkg/repo"
+	"github.com/sbwtw/go-filecoin/internal/pkg/wallet"
 )
 
 type commonDeps struct {

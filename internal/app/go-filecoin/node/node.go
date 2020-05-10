@@ -15,27 +15,27 @@ import (
 	"github.com/libp2p/go-libp2p-core/host"
 	"github.com/pkg/errors"
 
-	"github.com/filecoin-project/go-filecoin/internal/app/go-filecoin/internal/submodule"
-	"github.com/filecoin-project/go-filecoin/internal/app/go-filecoin/paymentchannel"
-	"github.com/filecoin-project/go-filecoin/internal/app/go-filecoin/plumbing/msg"
-	"github.com/filecoin-project/go-filecoin/internal/app/go-filecoin/porcelain"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/cborutil"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/chain"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/clock"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/config"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/consensus"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/message"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/metrics"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/mining"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/net/pubsub"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/piecemanager"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/protocol/drand"
-	mining_protocol "github.com/filecoin-project/go-filecoin/internal/pkg/protocol/mining"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/protocol/storage"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/repo"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/state"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/version"
+	"github.com/sbwtw/go-filecoin/internal/app/go-filecoin/internal/submodule"
+	"github.com/sbwtw/go-filecoin/internal/app/go-filecoin/paymentchannel"
+	"github.com/sbwtw/go-filecoin/internal/app/go-filecoin/plumbing/msg"
+	"github.com/sbwtw/go-filecoin/internal/app/go-filecoin/porcelain"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/cborutil"
+	"github.com/sbwtw/go-filecoin/internal/pkg/chain"
+	"github.com/sbwtw/go-filecoin/internal/pkg/clock"
+	"github.com/sbwtw/go-filecoin/internal/pkg/config"
+	"github.com/sbwtw/go-filecoin/internal/pkg/consensus"
+	"github.com/sbwtw/go-filecoin/internal/pkg/message"
+	"github.com/sbwtw/go-filecoin/internal/pkg/metrics"
+	"github.com/sbwtw/go-filecoin/internal/pkg/mining"
+	"github.com/sbwtw/go-filecoin/internal/pkg/net/pubsub"
+	"github.com/sbwtw/go-filecoin/internal/pkg/piecemanager"
+	"github.com/sbwtw/go-filecoin/internal/pkg/protocol/drand"
+	mining_protocol "github.com/sbwtw/go-filecoin/internal/pkg/protocol/mining"
+	"github.com/sbwtw/go-filecoin/internal/pkg/protocol/storage"
+	"github.com/sbwtw/go-filecoin/internal/pkg/repo"
+	"github.com/sbwtw/go-filecoin/internal/pkg/state"
+	"github.com/sbwtw/go-filecoin/internal/pkg/version"
 )
 
 var log = logging.Logger("node") // nolint: deadcode
@@ -122,7 +122,7 @@ func (node *Node) Start(ctx context.Context) error {
 	}
 
 	// TODO: defer establishing these API endpoints until the chain is synced when the commands
-	//   can handle their absence: https://github.com/filecoin-project/go-filecoin/issues/3137
+	//   can handle their absence: https://github.com/sbwtw/go-filecoin/issues/3137
 	err = node.setupProtocols()
 	if err != nil {
 		return errors.Wrap(err, "failed to set up protocols:")
@@ -148,8 +148,8 @@ func (node *Node) Start(ctx context.Context) error {
 
 		// Subscribe to the message pubsub topic to learn about messages to mine into blocks.
 		// TODO: defer this subscription until after mining (block production) is started:
-		// https://github.com/filecoin-project/go-filecoin/issues/2145.
-		// This is blocked by https://github.com/filecoin-project/go-filecoin/issues/2959, which
+		// https://github.com/sbwtw/go-filecoin/issues/2145.
+		// This is blocked by https://github.com/sbwtw/go-filecoin/issues/2959, which
 		// is necessary for message_propagate_test to start mining before testing this behaviour.
 		node.Messaging.MessageSub, err = node.pubsubscribe(syncCtx, node.Messaging.MessageTopic, node.processMessage)
 		if err != nil {

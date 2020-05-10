@@ -5,7 +5,7 @@ import (
 	"math/big"
 	"strings"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/encoding"
+	"github.com/sbwtw/go-filecoin/internal/pkg/encoding"
 	"github.com/filecoin-project/specs-actors/actors/abi"
 	specsabi "github.com/filecoin-project/specs-actors/actors/abi"
 	specsbig "github.com/filecoin-project/specs-actors/actors/abi/big"

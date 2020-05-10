@@ -8,7 +8,7 @@ import (
 	"github.com/filecoin-project/specs-actors/actors/builtin"
 	"github.com/ipfs/go-cid"
 
-	"github.com/filecoin-project/go-filecoin/tools/fast"
+	"github.com/sbwtw/go-filecoin/tools/fast"
 )
 
 // SendFilecoinFromDefault will send the `value` of FIL from the default wallet

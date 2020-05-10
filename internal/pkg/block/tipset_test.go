@@ -10,12 +10,12 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	blk "github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	e "github.com/filecoin-project/go-filecoin/internal/pkg/enccid"
+	blk "github.com/sbwtw/go-filecoin/internal/pkg/block"
+	e "github.com/sbwtw/go-filecoin/internal/pkg/enccid"
 	fbig "github.com/filecoin-project/specs-actors/actors/abi/big"
 
-	tf "github.com/filecoin-project/go-filecoin/internal/pkg/testhelpers/testflags"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/types"
+	tf "github.com/sbwtw/go-filecoin/internal/pkg/testhelpers/testflags"
+	"github.com/sbwtw/go-filecoin/internal/pkg/types"
 )
 
 const parentWeight = uint64(1337000)

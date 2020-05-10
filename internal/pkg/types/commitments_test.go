@@ -3,9 +3,9 @@ package types_test
 import (
 	"testing"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/encoding"
-	. "github.com/filecoin-project/go-filecoin/internal/pkg/types"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/util/convert"
+	"github.com/sbwtw/go-filecoin/internal/pkg/encoding"
+	. "github.com/sbwtw/go-filecoin/internal/pkg/types"
+	"github.com/sbwtw/go-filecoin/internal/pkg/util/convert"
 
 	"github.com/stretchr/testify/assert"
 )

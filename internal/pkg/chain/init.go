@@ -8,9 +8,9 @@ import (
 	cbor "github.com/ipfs/go-ipld-cbor"
 	"github.com/pkg/errors"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/genesis"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/repo"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/genesis"
+	"github.com/sbwtw/go-filecoin/internal/pkg/repo"
 )
 
 // Init initializes a DefaultSyncer in the given repo.

@@ -5,7 +5,7 @@ import (
 
 	"github.com/filecoin-project/specs-actors/actors/abi"
 
-	"github.com/filecoin-project/go-filecoin/tools/fast"
+	"github.com/sbwtw/go-filecoin/tools/fast"
 )
 
 // GetHeadBlockHeight will inspect the chain head and return the height

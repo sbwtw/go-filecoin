@@ -12,7 +12,7 @@ import (
 	"github.com/ipfs/go-cid"
 	logging "github.com/ipfs/go-log"
 
-	"github.com/filecoin-project/go-filecoin/tools/faucet/limiter"
+	"github.com/sbwtw/go-filecoin/tools/faucet/limiter"
 )
 
 var log = logging.Logger("faucet")

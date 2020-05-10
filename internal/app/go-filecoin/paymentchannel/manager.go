@@ -5,7 +5,7 @@ import (
 	"context"
 	"sync"
 
-	"github.com/filecoin-project/go-filecoin/internal/app/go-filecoin/plumbing/msg"
+	"github.com/sbwtw/go-filecoin/internal/app/go-filecoin/plumbing/msg"
 
 	"github.com/filecoin-project/go-address"
 	"github.com/filecoin-project/go-fil-markets/shared"
@@ -22,12 +22,12 @@ import (
 	xerrors "github.com/pkg/errors"
 	"github.com/prometheus/common/log"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/encoding"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/types"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm/actor"
-	"github.com/filecoin-project/go-filecoin/internal/pkg/vm/gas"
+	"github.com/sbwtw/go-filecoin/internal/pkg/block"
+	"github.com/sbwtw/go-filecoin/internal/pkg/encoding"
+	"github.com/sbwtw/go-filecoin/internal/pkg/types"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm/actor"
+	"github.com/sbwtw/go-filecoin/internal/pkg/vm/gas"
 )
 
 var defaultGasPrice = types.NewAttoFILFromFIL(actor.DefaultGasCost)
@@ -260,7 +260,7 @@ func (pm *Manager) AddFundsToChannel(paychAddr address.Address, amt abi.TokenAmo
 	if err != nil {
 		return cid.Undef, err
 	}
-	// TODO: track amts in paych store by lane: https://github.com/filecoin-project/go-filecoin/issues/4046
+	// TODO: track amts in paych store by lane: https://github.com/sbwtw/go-filecoin/issues/4046
 	return mcid, nil
 }
 
@@ -276,7 +276,7 @@ func (pm *Manager) WaitForAddFundsMessage(ctx context.Context, mcid cid.Cid) err
 
 // WaitForPaychCreateMsg waits for mcid to appear on chain and returns the robust address of the
 // created payment channel
-// TODO: set up channel tracking before knowing paych addr: https://github.com/filecoin-project/go-filecoin/issues/4045
+// TODO: set up channel tracking before knowing paych addr: https://github.com/sbwtw/go-filecoin/issues/4045
 //
 func (pm *Manager) handlePaychCreateResult(ctx context.Context, mcid cid.Cid, client, miner address.Address) {
 	defer pm.paymentChannels.storeLk.Unlock()

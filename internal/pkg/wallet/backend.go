@@ -3,7 +3,7 @@ package wallet
 import (
 	"github.com/filecoin-project/go-address"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/crypto"
+	"github.com/sbwtw/go-filecoin/internal/pkg/crypto"
 )
 
 // Backend is the interface to represent different storage backends
