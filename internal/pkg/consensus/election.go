@@ -49,19 +49,24 @@ func (em ElectionMachine) GenerateElectionProof(ctx context.Context, entry *dran
 
 // GenerateWinningPoSt creates a PoSt proof over the input miner ID and sector infos.
 func (em ElectionMachine) GenerateWinningPoSt(ctx context.Context, allSectorInfos []abi.SectorInfo, entry *drand.Entry, epoch abi.ChainEpoch, ep postgenerator.PoStGenerator, maddr address.Address) ([]block.PoStProof, error) {
-	minerIDuint64, err := address.IDFromAddress(maddr)
+	entropy, err := encoding.Encode(maddr)
 	if err != nil {
 		return nil, err
 	}
-	minerID := abi.ActorID(minerIDuint64)
 
-	seed := blake2b.Sum256(entry.Signature)
-	randomness, err := crypto.BlendEntropy(acrypto.DomainSeparationTag_WinningPoStChallengeSeed, seed[:], epoch, []byte{})
+	seed := blake2b.Sum256(entry.Data)
+	randomness, err := crypto.BlendEntropy(acrypto.DomainSeparationTag_WinningPoStChallengeSeed, seed[:], epoch, entropy)
+
 	if err != nil {
 		return nil, err
 	}
 	poStRandomness := abi.PoStRandomness(randomness)
 
+	minerIDuint64, err := address.IDFromAddress(maddr)
+	if err != nil {
+		return nil, err
+	}
+	minerID := abi.ActorID(minerIDuint64)
 	rp, err := allSectorInfos[0].RegisteredProof.RegisteredWinningPoStProof()
 	if err != nil {
 		return nil, err
@@ -110,8 +115,13 @@ func (em ElectionMachine) VerifyWinningPoSt(ctx context.Context, ep EPoStVerifie
 		return false, nil
 	}
 
-	seed := blake2b.Sum256(entry.Signature)
-	randomness, err := crypto.BlendEntropy(acrypto.DomainSeparationTag_WinningPoStChallengeSeed, seed[:], epoch, []byte{})
+	entropy, err := encoding.Encode(mIDAddr)
+	if err != nil {
+		return false, err
+	}
+
+	seed := blake2b.Sum256(entry.Data)
+	randomness, err := crypto.BlendEntropy(acrypto.DomainSeparationTag_WinningPoStChallengeSeed, seed[:], epoch, entropy)
 	if err != nil {
 		return false, err
 	}
@@ -152,7 +162,7 @@ func (em ElectionMachine) VerifyWinningPoSt(ctx context.Context, ep EPoStVerifie
 }
 
 type ChainSampler interface {
-	Sample(ctx context.Context, head block.TipSetKey, epoch abi.ChainEpoch) (crypto.RandomSeed, error)
+	SampleTicket(ctx context.Context, head block.TipSetKey, epoch abi.ChainEpoch) (block.Ticket, error)
 }
 
 // TicketMachine uses a VRF and VDF to generate deterministic, unpredictable
@@ -203,16 +213,16 @@ func (tm TicketMachine) ticketVRFRandomness(ctx context.Context, base block.TipS
 		return nil, err
 	}
 	if !newPeriod { // resample previous ticket and add to entropy
-		ticketSeed, err := tm.sampler.Sample(ctx, base, epoch)
+		ticket, err := tm.sampler.SampleTicket(ctx, base, epoch)
 		if err != nil {
 			return nil, errors.Wrapf(err, "failed to sample previous ticket")
 		}
-		_, err = entropyBuf.Write(ticketSeed)
+		_, err = entropyBuf.Write(ticket.VRFProof)
 		if err != nil {
 			return nil, err
 		}
 	}
-	seed := blake2b.Sum256(entry.Signature)
+	seed := blake2b.Sum256(entry.Data)
 	return crypto.BlendEntropy(acrypto.DomainSeparationTag_TicketProduction, seed[:], epoch, entropyBuf.Bytes())
 }
 
@@ -221,7 +231,7 @@ func electionVRFRandomness(entry *drand.Entry, miner address.Address, epoch abi.
 	if err != nil {
 		return nil, errors.Wrapf(err, "failed to encode entropy")
 	}
-	seed := blake2b.Sum256(entry.Signature)
+	seed := blake2b.Sum256(entry.Data)
 	return crypto.BlendEntropy(acrypto.DomainSeparationTag_ElectionProofProduction, seed[:], epoch, entropy)
 }
 

@@ -24,6 +24,7 @@ type Config struct {
 	Heartbeat     *HeartbeatConfig     `json:"heartbeat"`
 	Mining        *MiningConfig        `json:"mining"`
 	Mpool         *MessagePoolConfig   `json:"mpool"`
+	NetworkParams *NetworkParamsConfig `json:"parameters"`
 	Observability *ObservabilityConfig `json:"observability"`
 	SectorBase    *SectorBaseConfig    `json:"sectorbase"`
 	Swarm         *SwarmConfig         `json:"swarm"`
@@ -239,8 +240,18 @@ type MessagePoolConfig struct {
 
 func newDefaultMessagePoolConfig() *MessagePoolConfig {
 	return &MessagePoolConfig{
-		MaxPoolSize: 10000,
+		MaxPoolSize: 1000000,
 		MaxNonceGap: 100,
+	}
+}
+
+type NetworkParamsConfig struct {
+	ConsensusMinerMinPower uint64 // uint64 goes up to 18 EiB
+}
+
+func newDefaultNetworkParamsConfig() *NetworkParamsConfig {
+	return &NetworkParamsConfig{
+		ConsensusMinerMinPower: 0, // 0 means don't override the value
 	}
 }
 
@@ -272,13 +283,14 @@ func NewDefaultConfig() *Config {
 		Bootstrap:     newDefaultBootstrapConfig(),
 		Datastore:     newDefaultDatastoreConfig(),
 		Drand:         newDefaultDrandConfig(),
-		Swarm:         newDefaultSwarmConfig(),
-		Mining:        newDefaultMiningConfig(),
-		Wallet:        newDefaultWalletConfig(),
 		Heartbeat:     newDefaultHeartbeatConfig(),
+		Mining:        newDefaultMiningConfig(),
 		Mpool:         newDefaultMessagePoolConfig(),
-		SectorBase:    newDefaultSectorbaseConfig(),
+		NetworkParams: newDefaultNetworkParamsConfig(),
 		Observability: newDefaultObservabilityConfig(),
+		SectorBase:    newDefaultSectorbaseConfig(),
+		Swarm:         newDefaultSwarmConfig(),
+		Wallet:        newDefaultWalletConfig(),
 	}
 }
 

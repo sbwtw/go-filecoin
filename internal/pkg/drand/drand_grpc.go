@@ -35,6 +35,8 @@ type GRPC struct {
 
 	// The time of the 0th round of the DRAND chain
 	genesisTime time.Time
+	// the time of genesis block of the Filecoin chain
+	filecoinGenesisTime time.Time
 	// The DRAND round first included in the filecoin blockchain
 	firstFilecoin Round
 	// Duration of a round in this DRAND network
@@ -56,30 +58,35 @@ func NewGRPC(addresses []Address, distKeyCoeff [][]byte, drandGenTime time.Time,
 		return nil, err
 	}
 
-	// First filecoin round is the first drand round before filecoinGenesisTime
-	searchStart := filecoinGenTime.Add(-1 * rd)
-	startTimeOfRound := func(round Round) time.Time {
-		return drandGenTime.Add(rd * time.Duration(round))
+	grpc := &GRPC{
+		addresses:           addresses,
+		client:              core.NewGrpcClient(),
+		key:                 distKey,
+		genesisTime:         drandGenTime,
+		filecoinGenesisTime: filecoinGenTime,
+		// firstFilecoin set in updateFirsFilecoinRound below
+		roundTime: rd,
+		cache:     make(map[Round]*Entry),
 	}
-	results := roundsInIntervalWhenNoGaps(searchStart, filecoinGenTime, startTimeOfRound, rd)
-	if len(results) != 1 {
-		return nil, fmt.Errorf("found %d drand rounds between filecoinGenTime and filecoinGenTime - drandRountDuration, expected 1", len(results))
+	err = grpc.updateFirstFilecoinRound()
+	if err != nil {
+		return nil, err
 	}
-	ffr := results[0]
+	return grpc, nil
+}
 
-	return &GRPC{
-		addresses:     addresses,
-		client:        core.NewGrpcClient(),
-		key:           distKey,
-		genesisTime:   drandGenTime,
-		roundTime:     rd,
-		firstFilecoin: ffr,
-		cache:         make(map[Round]*Entry),
-	}, nil
+func (d *GRPC) updateFirstFilecoinRound() error {
+	// First filecoin round is the first drand round before filecoinGenesisTime
+	searchStart := d.filecoinGenesisTime.Add(-1 * d.roundTime)
+	results := d.RoundsInInterval(searchStart, d.filecoinGenesisTime)
+	if len(results) != 1 {
+		return fmt.Errorf("found %d drand rounds between filecoinGenTime and filecoinGenTime - drandRountDuration, expected 1", len(results))
+	}
+	d.firstFilecoin = results[0]
+	return nil
 }
 
 // ReadEntry fetches an entry from one of the drand servers (trying them sequentially) and returns the result.
-// **NOTE** this will block if called on a skipped round.
 func (d *GRPC) ReadEntry(ctx context.Context, drandRound Round) (*Entry, error) {
 	if entry, ok := d.cache[drandRound]; ok {
 		return entry, nil
@@ -87,21 +94,34 @@ func (d *GRPC) ReadEntry(ctx context.Context, drandRound Round) (*Entry, error) 
 
 	// try each address, stopping when we have a key
 	for _, addr := range d.addresses {
+		if ctx.Err() != nil { // Don't try any more peers after cancellation.
+			return nil, ctx.Err()
+		}
+		// The drand client doesn't accept a context, so is un-cancellable :-(
 		pub, err := d.client.Public(addr.address, d.key, addr.secure, int(drandRound))
 		if err != nil {
 			log.Warnf("Error fetching drand randomness from %s: %s", addr.address, err)
 			continue
 		}
 
+		// Because the client.Public() call can't be cancelled by this context, it can return at any time,
+		// potentially leading to concurrent state updates below racing a new call to into ReadEntry() (because
+		// the caller thought it was cancelled already).
+		// This check will mostly, but not completely securely, avoid this. A robust fix requires avoiding
+		// concurrent calls to here completely, which ultimately arise from the goroutine in the mining scheduler.
+		// https://github.com/filecoin-project/go-filecoin/issues/4065
+		if ctx.Err() != nil {
+			return nil, ctx.Err()
+		}
+
 		entry := &Entry{
-			Round:       drandRound,
-			Signature:   pub.GetSignature(),
-			parentRound: Round(pub.PreviousRound),
+			Round: drandRound,
+			Data:  pub.GetSignature(),
 		}
 		d.updateLocalState(entry)
 		return entry, nil
 	}
-	return nil, errors.New("Could not retrieve drand randomess from any address")
+	return nil, errors.New("could not retrieve drand randomess from any address")
 }
 
 func (d *GRPC) updateLocalState(entry *Entry) {
@@ -116,8 +136,8 @@ func (d *GRPC) updateLocalState(entry *Entry) {
 
 // VerifyEntry verifies that the child's signature is a valid signature of the previous entry.
 func (d *GRPC) VerifyEntry(parent, child *Entry) (bool, error) {
-	msg := beacon.Message(parent.Signature, uint64(parent.Round), uint64(child.Round))
-	err := key.Scheme.VerifyRecovered(d.key.Coefficients[0], msg, child.Signature)
+	msg := beacon.Message(uint64(child.Round), parent.Data)
+	err := key.Scheme.VerifyRecovered(d.key.Coefficients[0], msg, child.Data)
 	if err != nil {
 		return false, err
 	}
@@ -154,6 +174,11 @@ func (d *GRPC) FetchGroupConfig(addresses []string, secure bool, overrideGroupAd
 			d.addresses = drandAddresses(addresses, secure)
 		} else {
 			d.addresses = drandAddresses(groupAddrs, secure)
+		}
+
+		err = d.updateFirstFilecoinRound() // this depends on genesis and round time so recalculate
+		if err != nil {
+			return nil, nil, 0, 0, err
 		}
 
 		return groupAddrs, keyCoeffs, genesisTime, roundSeconds, nil
@@ -208,54 +233,28 @@ func (d *GRPC) StartTimeOfRound(round Round) time.Time {
 }
 
 // RoundsInInterval returns all rounds in the given interval.
-// **IMPORTANT** This function will block if it cannot determine the exact
-// rounds in this interval due to potential gaps.  This happens in two cases:
-// 1. RoundsInInterval is called on an interval extending into the future
-// 2. There is an ongoing drand outage causing a gap in drand rounds
-// 3. There is a network partition blocking this GPRC from the latest rounds
-func (d *GRPC) RoundsInInterval(ctx context.Context, startTime, endTime time.Time) ([]Round, error) {
-	idealRounds := roundsInIntervalWhenNoGaps(startTime, endTime, d.StartTimeOfRound, d.roundTime)
-	if len(idealRounds) == 0 { // exit early if no rounds possible
-		return []Round{}, nil
-	}
-	minRound := idealRounds[0]
-	maxRound := idealRounds[len(idealRounds)-1]
 
-	// if our latest round is greater set traverse to start at our latest round
-	var next *Entry
-	var err error
-	if d.latestEntry != nil && d.latestEntry.Round > idealRounds[len(idealRounds)-1] {
-		next = d.latestEntry
-	} else {
-		// wait on network to determine which rounds exist.  If maxRound is
-		// skipped this will error or block indefinitely.
-		next, err = d.ReadEntry(ctx, maxRound)
-		if err != nil {
-			return nil, err
-		}
-	}
-
-	var rounds []Round
-	for next.Round >= minRound {
-		if next.Round <= maxRound {
-			rounds = append(rounds, next.Round)
-		}
-		// handle possible first-DRAND-round edge case
-		if next.Round == 0 {
-			break
-		}
-		next, err = d.ReadEntry(ctx, next.parentRound)
-		if err != nil {
-			return nil, err
-		}
-	}
-	return reverse(rounds), nil
+func (d *GRPC) RoundsInInterval(startTime, endTime time.Time) []Round {
+	return roundsInInterval(startTime, endTime, d.StartTimeOfRound, d.roundTime)
 }
 
-func reverse(rounds []Round) []Round {
-	revRounds := make([]Round, len(rounds))
-	for i := 0; i < len(rounds); i++ {
-		revRounds[i] = rounds[len(rounds)-1-i]
+func roundsInInterval(startTime, endTime time.Time, startTimeOfRound func(Round) time.Time, roundDuration time.Duration) []Round {
+	// Find first round after startTime
+	genesisTime := startTimeOfRound(Round(0))
+	truncatedStartRound := Round(startTime.Sub(genesisTime) / roundDuration)
+	var round Round
+	if startTimeOfRound(truncatedStartRound).Equal(startTime) {
+		round = truncatedStartRound
+	} else {
+		round = truncatedStartRound + 1
 	}
-	return revRounds
+	roundTime := startTimeOfRound(round)
+	var rounds []Round
+	// Advance a round time until we hit endTime, adding rounds
+	for roundTime.Before(endTime) {
+		rounds = append(rounds, round)
+		round++
+		roundTime = startTimeOfRound(round)
+	}
+	return rounds
 }

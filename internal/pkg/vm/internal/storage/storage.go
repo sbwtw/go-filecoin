@@ -26,8 +26,13 @@ type VMStorage struct {
 	readCacheEnabled bool
 }
 
-// ErrNotFound is returned by storage when no object matches a requested Cid
+// ErrNotFound is returned by storage when no object matches a requested Cid.
 var ErrNotFound = errors.New("object not found")
+
+// SerializationError is returned by storage when de/serialization of the object fails.
+type SerializationError struct {
+	error
+}
 
 // NewStorage creates a new VMStorage.
 func NewStorage(bs blockstore.Blockstore) VMStorage {
@@ -48,7 +53,7 @@ func (s *VMStorage) SetReadCache(enabled bool) {
 func (s *VMStorage) Put(ctx context.Context, obj interface{}) (cid.Cid, int, error) {
 	nd, err := s.toNode(obj)
 	if err != nil {
-		return cid.Undef, 0, err
+		return cid.Undef, 0, SerializationError{err}
 	}
 
 	// append the object to the buffer
@@ -73,7 +78,11 @@ func (s *VMStorage) Get(ctx context.Context, cid cid.Cid, obj interface{}) (int,
 	if err != nil {
 		return 0, err
 	}
-	return len(raw), encoding.Decode(raw, obj)
+	err = encoding.Decode(raw, obj)
+	if err != nil {
+		return 0, SerializationError{err}
+	}
+	return len(raw), nil
 }
 
 // GetRaw retrieves the raw bytes stored, returns true if it exists.
@@ -122,12 +131,22 @@ func (s *VMStorage) Flush() error {
 	for _, nd := range s.writeBuffer {
 		blks = append(blks, nd)
 	}
-	// write objects to store
-	if err := s.blockstore.PutMany(blks); err != nil {
-		return err
-	}
 
-	// Dragons: check if the blockstore has a flush and flush it too
+	// From https://github.com/dgraph-io/badger/issues/441: "a txn should not exceed the size of a single memtable"
+	// Default badger.DefaultOptions.MaxTableSize is 64Mib
+	// Pushing this hard would require measuring the size of each block and also accounting for badger object overheads.
+	// 1024 would give us very generous room for 64Kib per object.
+	maxBatchSize := 4 * 1024
+
+	// Write at most maxBatchSize objects to store at a time
+	remaining := blks
+	for len(remaining) > 0 {
+		last := min(len(remaining), maxBatchSize)
+		if err := s.blockstore.PutMany(remaining[:last]); err != nil {
+			return err
+		}
+		remaining = remaining[last:]
+	}
 
 	if s.readCacheEnabled {
 		// move objects to read cache
@@ -173,4 +192,11 @@ func (s *VMStorage) toNode(v interface{}) (ipld.Node, error) {
 		return nil, err
 	}
 	return nd, nil
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }

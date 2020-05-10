@@ -6,18 +6,15 @@ import (
 	"testing"
 	"time"
 
-	"github.com/filecoin-project/go-filecoin/internal/pkg/types"
-
 	"github.com/filecoin-project/go-fil-markets/storagemarket"
-
 	"github.com/stretchr/testify/require"
 
 	"github.com/filecoin-project/go-filecoin/internal/app/go-filecoin/node/test"
 	tf "github.com/filecoin-project/go-filecoin/internal/pkg/testhelpers/testflags"
+	"github.com/filecoin-project/go-filecoin/internal/pkg/types"
 )
 
 func TestProposeDeal(t *testing.T) {
-	t.Skip("fix when landing new storage miner and fsm changes")
 	tf.IntegrationTest(t)
 
 	ctx := context.Background()
@@ -67,19 +64,14 @@ func TestProposeDeal(t *testing.T) {
 	for i := 0; i < 30; i++ {
 		clientAPI.RunMarshaledJSON(ctx, &dealStatus, "client", "query-storage-deal", result.ProposalCid.String())
 		switch dealStatus.State {
-		case storagemarket.StorageDealUnknown,
-			storagemarket.StorageDealValidating:
-			time.Sleep(1 * time.Second) // in progress, wait and continue
 		case storagemarket.StorageDealProposalAccepted,
 			storagemarket.StorageDealStaged,
 			storagemarket.StorageDealSealing,
 			storagemarket.StorageDealActive:
-
 			// Deal accepted. Test passed.
 			return
 		default:
-			t.Errorf("unexpected state: %d %s", dealStatus.State, dealStatus.Message)
-			return
+			time.Sleep(1 * time.Second) // in progress, wait and continue
 		}
 	}
 	t.Error("timeout waiting for deal status update")
