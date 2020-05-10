@@ -5,7 +5,7 @@ import (
 	"encoding/binary"
 	"time"
 
-	ffi "github.com/filecoin-project/filecoin-ffi"
+	ffi "github.com/sbwtw/filecoin-ffi"
 )
 
 const testDRANDRoundDuration = 25 * time.Second

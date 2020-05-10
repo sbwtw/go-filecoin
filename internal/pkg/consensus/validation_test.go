@@ -10,7 +10,7 @@ import (
 	"github.com/filecoin-project/specs-actors/actors/builtin"
 	"github.com/ipfs/go-cid"
 
-	bls "github.com/filecoin-project/filecoin-ffi"
+	bls "github.com/sbwtw/filecoin-ffi"
 	"github.com/filecoin-project/go-filecoin/internal/pkg/block"
 	"github.com/filecoin-project/go-filecoin/internal/pkg/consensus"
 	e "github.com/filecoin-project/go-filecoin/internal/pkg/enccid"

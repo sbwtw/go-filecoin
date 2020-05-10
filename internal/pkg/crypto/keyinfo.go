@@ -6,7 +6,7 @@ import (
 	"github.com/filecoin-project/go-address"
 	"github.com/pkg/errors"
 
-	bls "github.com/filecoin-project/filecoin-ffi"
+	bls "github.com/sbwtw/filecoin-ffi"
 	"github.com/filecoin-project/go-filecoin/internal/pkg/encoding"
 )
 
