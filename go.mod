@@ -126,4 +126,4 @@ require (
 	howett.net/plist v0.0.0-20200419221736-3b63eb3a43b5 // indirect
 )
 
-replace github.com/filecoin-project/filecoin-ffi => ./vendors/filecoin-ffi
+replace github.com/sbwtw/filecoin-ffi => ./vendors/filecoin-ffi
