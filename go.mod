@@ -15,7 +15,7 @@ require (
 	github.com/drand/drand v0.7.2
 	github.com/drand/kyber v1.0.1-0.20200331114745-30e90cc60f99
 	github.com/elastic/go-windows v1.0.1 // indirect
-	github.com/filecoin-project/chain-validation v0.0.6-0.20200429181200-c83b25321997
+	github.com/filecoin-project/chain-validation v0.0.6-0.20200506234205-5fe7d4aab7f9
 	github.com/filecoin-project/go-address v0.0.2-0.20200218010043-eb9bb40ed5be
 	github.com/filecoin-project/go-amt-ipld/v2 v2.0.1-0.20200424220931-6263827e49f2
 	github.com/filecoin-project/go-bitfield v0.0.0-20200416002808-b3ee67ec9060
@@ -100,7 +100,7 @@ require (
 	github.com/prometheus/client_golang v1.2.1
 	github.com/prometheus/common v0.9.1 // indirect
 	github.com/prometheus/procfs v0.0.11 // indirect
-	github.com/sbwtw/filecoin-ffi v0.26.0
+	github.com/sbwtw/filecoin-ffi v0.26.3-0.20200510031525-9a3531964af2
 	github.com/sbwtw/go-paramfetch v0.0.2-0.20200501150428-cfd15070955e
 	github.com/sbwtw/sector-storage v0.0.0-20200510010624-2f5b4ea2feca
 	github.com/spf13/afero v1.2.2 // indirect
@@ -127,3 +127,4 @@ require (
 )
 
 replace github.com/sbwtw/filecoin-ffi => ./vendors/filecoin-ffi
+replace github.com/filecoin-project/filecoin-ffi => ./vendors/filecoin-ffi-origin
