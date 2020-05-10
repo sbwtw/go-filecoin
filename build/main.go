@@ -245,9 +245,9 @@ func generateGenesis() {
 }
 
 func flags() string {
-	return fmt.Sprintf("-ldflags=github.com/filecoin-project/go-filecoin=\"%s\"", strings.Join([]string{
-		fmt.Sprintf("-X github.com/filecoin-project/go-filecoin/build/flags.GitRoot=%s", helpers.GetGitRoot()),
-		fmt.Sprintf("-X github.com/filecoin-project/go-filecoin/build/flags.GitCommit=%s", getCommitSha()),
+	return fmt.Sprintf("-ldflags=github.com/sbwtw/go-filecoin=\"%s\"", strings.Join([]string{
+		fmt.Sprintf("-X github.com/sbwtw/go-filecoin/build/flags.GitRoot=%s", helpers.GetGitRoot()),
+		fmt.Sprintf("-X github.com/sbwtw/go-filecoin/build/flags.GitCommit=%s", getCommitSha()),
 	}, " "))
 }
 
